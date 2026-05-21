@@ -3,2123 +3,791 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>WAJDI — SHINWA PROJECT · BLOC I</title>
+<title>WAJDI — SHINWA PROJECT · PROGRAMME 12 SEMAINES</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-/* ============================================================
-   SHINWA PROJECT V2 — WAJDI EDITION
-   Science-Based: PPL 2x/week + Athletic Day + Deload Semaines 4 & 8
-   Sources: Schoenfeld 2019, NSCA 2024, Pedersen 2024, Nature 2026
-   Palette: Encre · Sang · Or · Cyan · Vert Athlétique · Violet Hyper
-============================================================ */
-
 :root {
-  --ink:      #060a0e;
-  --ink2:     #0a1018;
-  --ink3:     #101822;
-  --ink4:     #181f2a;
-  --blood:    #c41e3a;
-  --blood2:   #e8294e;
-  --ember:    #f5a623;
-  --ember2:   #ffd166;
-  --sky:      #00d4ff;
-  --sky2:     #7df9ff;
-  --lime:     #39ff14;
-  --lime2:    #a8ff3e;
-  --violet:   #8a2be2;
-  --violet2:  #c77dff;
-  --steel:    #8fa8c0;
-  --fog:      #3d5068;
-  --deload-c: #ff9800;
-  --deload2:  #ffcc02;
-  --text:     #d8e4ef;
-  --text2:    #7a99b5;
-  --ghost:    rgba(255,255,255,0.05);
-  --line:     rgba(245,166,35,0.15);
-  --font-d:   'Bebas Neue', cursive;
-  --font-b:   'Rajdhani', sans-serif;
-  --font-m:   'Share Tech Mono', monospace;
+  --ink:     #060a0e;
+  --ink2:    #0a1018;
+  --ink3:    #101822;
+  --ink4:    #181f2a;
+  --blood:   #c41e3a;
+  --blood2:  #e8294e;
+  --ember:   #f5a623;
+  --ember2:  #ffd166;
+  --sky:     #00d4ff;
+  --sky2:    #7df9ff;
+  --lime:    #39ff14;
+  --lime2:   #a8ff3e;
+  --violet:  #8a2be2;
+  --violet2: #c77dff;
+  --steel:   #8fa8c0;
+  --fog:     #3d5068;
+  --dl:      #ff9800;
+  --dl2:     #ffcc02;
+  --text:    #d8e4ef;
+  --text2:   #7a99b5;
+  --ghost:   rgba(255,255,255,0.04);
+  --line:    rgba(245,166,35,0.13);
+  --fd:      'Bebas Neue', cursive;
+  --fb:      'Rajdhani', sans-serif;
+  --fm:      'Share Tech Mono', monospace;
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--ink);
-  color: var(--text);
-  font-family: var(--font-b);
-  font-weight: 500;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--fb);font-weight:500;overflow-x:hidden;min-height:100vh}
 
 /* ── NOISE ── */
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.022;
-  pointer-events: none;
-  z-index: 0;
-}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.02;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(143,168,192,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(143,168,192,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
 
-/* ── GRID ── */
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image:
-    linear-gradient(rgba(143,168,192,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143,168,192,0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
-  z-index: 0;
-}
+.vignette{position:fixed;inset:0;background:radial-gradient(ellipse at 50% 25%,transparent 25%,rgba(6,10,14,.88) 100%);pointer-events:none;z-index:1}
+.glow-top{position:fixed;top:-280px;left:50%;transform:translateX(-50%);width:900px;height:560px;background:radial-gradient(ellipse,rgba(196,30,58,.09) 0%,transparent 70%);pointer-events:none;z-index:1}
 
-.vignette {
-  position: fixed; inset: 0;
-  background: radial-gradient(ellipse at 50% 30%, transparent 30%, rgba(6,10,14,0.9) 100%);
-  pointer-events: none; z-index: 1;
-}
+.wrap{position:relative;z-index:10;max-width:1400px;margin:0 auto;padding:0 2rem}
 
-.glow-top {
-  position: fixed; top: -300px; left: 50%;
-  transform: translateX(-50%);
-  width: 1000px; height: 600px;
-  background: radial-gradient(ellipse, rgba(196,30,58,0.1) 0%, transparent 70%);
-  pointer-events: none; z-index: 1;
-}
+/* ══════════ HERO ══════════ */
+.hero-section{padding:4.5rem 0 2.5rem;position:relative;overflow:hidden}
+.kanji-bg{position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:serif;font-size:clamp(10rem,25vw,20rem);color:transparent;-webkit-text-stroke:1px rgba(196,30,58,.055);pointer-events:none;user-select:none;line-height:1}
+.hero-pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--blood);color:#fff;font-family:var(--fm);font-size:.67rem;letter-spacing:.22em;padding:.35rem 1.2rem;clip-path:polygon(.6rem 0%,100% 0%,calc(100% - .6rem) 100%,0% 100%);margin-bottom:1.4rem}
+.hero-pill::before{content:'';display:inline-block;width:6px;height:6px;background:var(--ember2);border-radius:50%;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
 
-.wrap {
-  position: relative; z-index: 10;
-  max-width: 1380px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+.hero-eyebrow{font-family:var(--fm);font-size:clamp(.6rem,1.3vw,.76rem);letter-spacing:.38em;color:var(--steel);margin-bottom:.4rem}
+.hero-name{font-family:var(--fd);font-size:clamp(5rem,15vw,13rem);line-height:.88;letter-spacing:.04em;color:var(--ember2);text-shadow:0 0 40px rgba(245,166,35,.5),0 0 100px rgba(245,166,35,.15),3px 3px 0 var(--blood),5px 5px 0 rgba(196,30,58,.4);animation:heroBreath 6s ease-in-out infinite}
+@keyframes heroBreath{0%,100%{text-shadow:0 0 40px rgba(245,166,35,.5),0 0 100px rgba(245,166,35,.15),3px 3px 0 var(--blood),5px 5px 0 rgba(196,30,58,.4)}50%{text-shadow:0 0 70px rgba(245,166,35,.75),0 0 160px rgba(245,166,35,.3),3px 3px 0 var(--blood),5px 5px 0 rgba(196,30,58,.5)}}
+.hero-sub{font-family:var(--fd);font-size:clamp(1rem,2.8vw,2rem);letter-spacing:.38em;color:var(--text2);margin-top:.15rem}
+.hero-tagline{font-family:var(--fm);font-size:clamp(.65rem,1.5vw,.85rem);letter-spacing:.18em;color:var(--sky);text-shadow:0 0 20px rgba(0,212,255,.4);margin-top:.7rem;animation:skyPulse 3s ease-in-out infinite}
+@keyframes skyPulse{0%,100%{opacity:.8}50%{opacity:1;text-shadow:0 0 35px rgba(0,212,255,.7)}}
 
-/* ============================================================
-   DELOAD GLOBAL BANNER
-============================================================ */
-#deload-banner {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 9000;
-  background: linear-gradient(90deg, var(--ink2), rgba(255,152,0,0.15), var(--ink2));
-  border-bottom: 2px solid var(--deload-c);
-  padding: .55rem 2rem;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-}
-#deload-banner.active { display: flex; }
-#deload-banner-txt {
-  font-family: var(--font-m);
-  font-size: .72rem;
-  letter-spacing: .3em;
-  color: var(--deload2);
-  text-shadow: 0 0 20px rgba(255,204,2,.4);
-}
-.deload-pulse {
-  display: inline-block;
-  width: 8px; height: 8px;
-  background: var(--deload-c);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--deload-c);
-  animation: blink 1s ease-in-out infinite;
-}
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.15} }
+.h-rule{display:flex;align-items:center;gap:1rem;margin:2rem 0}
+.h-rule-line{flex:1;height:1px;background:linear-gradient(90deg,var(--blood),rgba(196,30,58,.2),transparent)}
+.h-rule-line.rev{background:linear-gradient(90deg,transparent,rgba(196,30,58,.2),var(--blood))}
 
-/* ============================================================
-   HEADER
-============================================================ */
-.site-header {
-  position: relative;
-  padding: 4rem 0 2rem;
-  overflow: hidden;
-}
+/* ══════════ STATS BAR ══════════ */
+.stats-bar{display:flex;gap:1px;background:rgba(196,30,58,.2);border:1px solid rgba(196,30,58,.2);margin-bottom:3rem;overflow:hidden}
+.stat-cell{flex:1;background:var(--ink2);padding:1.1rem .8rem;text-align:center}
+.stat-val{font-family:var(--fd);font-size:clamp(1.5rem,3.5vw,2.4rem);line-height:1;color:var(--ember2);text-shadow:0 0 20px rgba(245,166,35,.3)}
+.stat-label{font-family:var(--fm);font-size:.52rem;letter-spacing:.2em;color:var(--fog);margin-top:.2rem}
 
-.kanji-bg {
-  position: absolute; right: -3rem; top: 50%;
-  transform: translateY(-50%);
-  font-family: serif;
-  font-size: clamp(10rem, 26vw, 20rem);
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(196,30,58,0.06);
-  pointer-events: none; user-select: none;
-  line-height: 1;
-}
+/* ══════════ SECTION HEADER ══════════ */
+.s-header{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:1.8rem;padding-bottom:.9rem;border-bottom:1px solid var(--line)}
+.s-title{font-family:var(--fd);font-size:clamp(1.4rem,3.5vw,2.4rem);letter-spacing:.1em;color:var(--text);line-height:1}
+.s-title span{color:var(--blood2)}
+.s-num{font-family:var(--fm);font-size:.63rem;color:var(--fog);letter-spacing:.18em;margin-left:auto}
 
-.header-pill {
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: var(--blood); color: #fff;
-  font-family: var(--font-m); font-size: .68rem;
-  letter-spacing: .22em;
-  padding: .35rem 1.2rem;
-  clip-path: polygon(0.6rem 0%, 100% 0%, calc(100% - 0.6rem) 100%, 0% 100%);
-  margin-bottom: 1.4rem;
-}
-.header-pill::before {
-  content: ''; display: inline-block;
-  width: 6px; height: 6px;
-  background: var(--ember2); border-radius: 50%;
-  animation: blink 1.4s ease-in-out infinite;
-}
+/* ══════════ WEEK OVERVIEW STRIP ══════════ */
+.week-strip{display:flex;gap:3px;margin-bottom:3rem;overflow-x:auto;padding-bottom:.4rem}
+.week-strip::-webkit-scrollbar{height:3px}
+.week-strip::-webkit-scrollbar-track{background:var(--ink)}
+.week-strip::-webkit-scrollbar-thumb{background:var(--blood)}
+.wdot{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:58px}
+.wdot-circle{width:44px;height:44px;border-radius:50%;border:1px solid var(--fog);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.05rem;color:var(--fog);transition:all .2s;cursor:pointer}
+.wdot:hover .wdot-circle{border-color:var(--ember);color:var(--ember2);box-shadow:0 0 14px rgba(245,166,35,.35)}
+.wdot.is-normal .wdot-circle{border-color:rgba(196,30,58,.45);color:var(--blood2);background:rgba(196,30,58,.08)}
+.wdot.is-deload .wdot-circle{border-color:var(--dl);color:var(--dl2);background:rgba(255,152,0,.1)}
+.wdot.is-test .wdot-circle{border-color:var(--sky);color:var(--sky);background:rgba(0,212,255,.08)}
+.wdot-label{font-family:var(--fm);font-size:.48rem;letter-spacing:.1em;text-align:center}
+.wdot.is-normal .wdot-label{color:var(--blood2)}
+.wdot.is-deload .wdot-label{color:var(--dl)}
+.wdot.is-test .wdot-label{color:var(--sky)}
 
-.hero { position: relative; display: flex; flex-direction: column; gap: .2rem; }
+/* ══════════ ACCORDION WEEKS ══════════ */
+.week-block{margin-bottom:.8rem;border:1px solid rgba(143,168,192,.06);overflow:hidden;transition:box-shadow .2s}
+.week-block:hover{box-shadow:0 4px 40px rgba(0,0,0,.4)}
 
-.hero-eyebrow {
-  font-family: var(--font-m); font-size: clamp(.62rem, 1.4vw, .78rem);
-  letter-spacing: .4em; color: var(--steel); text-transform: uppercase;
-}
+.week-head{display:flex;align-items:center;gap:1.2rem;padding:1.1rem 1.5rem;background:var(--ink2);cursor:pointer;user-select:none;border-top:2px solid var(--blood);transition:background .15s;position:relative;overflow:hidden}
+.week-head::after{content:'';position:absolute;top:0;left:-100%;width:35%;height:100%;background:linear-gradient(90deg,transparent,rgba(245,166,35,.04),transparent);animation:scanH 5s ease-in-out infinite}
+@keyframes scanH{to{left:150%}}
+.week-head.deload-head{border-top-color:var(--dl)}
+.week-head.test-head{border-top-color:var(--sky)}
+.week-head:hover{background:var(--ink3)}
 
-.hero-name {
-  font-family: var(--font-d);
-  font-size: clamp(5rem, 16vw, 13rem);
-  line-height: .88; letter-spacing: .04em;
-  color: var(--ember2);
-  text-shadow:
-    0 0 40px rgba(245,166,35,.5),
-    0 0 100px rgba(245,166,35,.15),
-    3px 3px 0 var(--blood),
-    5px 5px 0 rgba(196,30,58,.4);
-  animation: heroBreath 6s ease-in-out infinite;
-}
-@keyframes heroBreath {
-  0%,100% { text-shadow: 0 0 40px rgba(245,166,35,.5), 0 0 100px rgba(245,166,35,.15), 3px 3px 0 var(--blood), 5px 5px 0 rgba(196,30,58,.4); }
-  50%      { text-shadow: 0 0 70px rgba(245,166,35,.75), 0 0 160px rgba(245,166,35,.3), 3px 3px 0 var(--blood), 5px 5px 0 rgba(196,30,58,.5); }
-}
+.wh-num{font-family:var(--fd);font-size:2.2rem;line-height:1;color:var(--ember2);letter-spacing:.05em;min-width:2.6rem}
+.wh-num.deload-num{color:var(--dl2)}
+.wh-num.test-num{color:var(--sky)}
+.wh-title{font-family:var(--fd);font-size:1.25rem;letter-spacing:.12em;color:var(--text)}
+.wh-sub{font-family:var(--fm);font-size:.57rem;letter-spacing:.18em;color:var(--text2);margin-top:.1rem}
+.wh-badge{margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;padding:.28rem .85rem;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);flex-shrink:0}
+.b-normal{background:rgba(196,30,58,.2);color:var(--blood2);border:1px solid rgba(196,30,58,.35)}
+.b-deload{background:rgba(255,152,0,.18);color:var(--dl2);border:1px solid rgba(255,152,0,.4)}
+.b-test{background:rgba(0,212,255,.1);color:var(--sky);border:1px solid rgba(0,212,255,.3)}
+.wh-arrow{font-size:.7rem;color:var(--fog);margin-left:.8rem;transition:transform .3s}
+.week-block.open .wh-arrow{transform:rotate(180deg)}
 
-.hero-project {
-  font-family: var(--font-d);
-  font-size: clamp(1rem, 3vw, 2.2rem);
-  letter-spacing: .4em; color: var(--text2);
-}
+.week-body{display:none;background:var(--ink3);border-top:1px solid rgba(255,255,255,.04)}
+.week-block.open .week-body{display:block}
 
-.hero-tagline {
-  font-family: var(--font-m);
-  font-size: clamp(.68rem, 1.6vw, .88rem);
-  letter-spacing: .2em; color: var(--sky);
-  text-shadow: 0 0 20px rgba(0,212,255,.4);
-  margin-top: .6rem;
-  animation: skyPulse 3s ease-in-out infinite;
-}
-@keyframes skyPulse { 0%,100%{opacity:.8} 50%{opacity:1; text-shadow:0 0 35px rgba(0,212,255,.7)} }
+/* ══════════ DELOAD BANNER ══════════ */
+.deload-banner-inline{background:linear-gradient(90deg,var(--ink2),rgba(255,152,0,.1),var(--ink2));border-bottom:1px solid rgba(255,152,0,.25);padding:.9rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.dl-pulse{display:inline-block;width:7px;height:7px;background:var(--dl);border-radius:50%;box-shadow:0 0 10px var(--dl);animation:blink 1s ease-in-out infinite;flex-shrink:0}
+.deload-banner-txt{font-family:var(--fm);font-size:.63rem;letter-spacing:.22em;color:var(--dl2);text-shadow:0 0 18px rgba(255,204,2,.35);line-height:1.7}
+.test-banner-inline{background:linear-gradient(90deg,var(--ink2),rgba(0,212,255,.08),var(--ink2));border-bottom:1px solid rgba(0,212,255,.2);padding:.9rem 1.5rem;display:flex;align-items:center;gap:1rem}
+.test-banner-txt{font-family:var(--fm);font-size:.63rem;letter-spacing:.22em;color:var(--sky2);line-height:1.7}
 
-.h-rule {
-  display: flex; align-items: center; gap: 1rem;
-  margin: 2rem 0;
-}
-.h-rule-line {
-  flex: 1; height: 1px;
-  background: linear-gradient(90deg, var(--blood), rgba(196,30,58,.2), transparent);
-}
+/* ══════════ PROGRAM GRID ══════════ */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;padding:1.4rem 1.4rem 1.6rem}
 
-/* ============================================================
-   START DATE PICKER
-============================================================ */
-.start-config {
-  background: var(--ink2);
-  border: 1px solid rgba(245,166,35,.2);
-  padding: 1.5rem 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.start-config-label {
-  font-family: var(--font-m);
-  font-size: .65rem;
-  letter-spacing: .25em;
-  color: var(--text2);
-}
-.start-config input[type="date"] {
-  background: var(--ink3);
-  border: 1px solid rgba(196,30,58,.35);
-  color: var(--ember2);
-  font-family: var(--font-m);
-  font-size: .75rem;
-  letter-spacing: .1em;
-  padding: .45rem .9rem;
-  outline: none;
-  cursor: pointer;
-  color-scheme: dark;
-}
-.start-config input[type="date"]:focus {
-  border-color: var(--ember);
-  box-shadow: 0 0 12px rgba(245,166,35,.2);
-}
-.btn-set {
-  background: var(--blood);
-  border: none;
-  color: #fff;
-  font-family: var(--font-d);
-  font-size: 1rem;
-  letter-spacing: .15em;
-  padding: .5rem 1.6rem;
-  cursor: pointer;
-  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
-  transition: background .2s;
-}
-.btn-set:hover { background: var(--blood2); }
-.config-info {
-  font-family: var(--font-m);
-  font-size: .62rem;
-  letter-spacing: .15em;
-  color: var(--fog);
-}
-#current-week-display {
-  font-family: var(--font-d);
-  font-size: 1.4rem;
-  letter-spacing: .15em;
-  color: var(--ember2);
-}
+/* CARD */
+.pcard{position:relative;background:var(--ink2);border:1px solid rgba(143,168,192,.07);border-top:2px solid rgba(196,30,58,.35);overflow:hidden;transition:transform .22s cubic-bezier(.23,1,.32,1),box-shadow .22s}
+.pcard::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(to bottom,var(--ember2),var(--blood));transition:height .3s}
+.pcard:hover::before{height:100%}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 18px 55px rgba(0,0,0,.6),0 0 0 1px rgba(196,30,58,.35),0 0 35px rgba(196,30,58,.09)}
+.pcard::after{content:'';position:absolute;bottom:0;right:0;width:16px;height:16px;border-right:1px solid rgba(196,30,58,.22);border-bottom:1px solid rgba(196,30,58,.22)}
+.pcard.a-card{border-top-color:rgba(57,255,20,.4)}
+.pcard.a-card::before{background:linear-gradient(to bottom,var(--lime2),var(--lime))}
+.pcard.a-card:hover{box-shadow:0 18px 55px rgba(0,0,0,.6),0 0 0 1px rgba(57,255,20,.35),0 0 30px rgba(57,255,20,.07)}
+.pcard.dl-card{border-top-color:rgba(255,152,0,.5)}
+.pcard.dl-card::before{background:linear-gradient(to bottom,var(--dl2),var(--dl))}
+.pcard.dl-card:hover{box-shadow:0 18px 55px rgba(0,0,0,.6),0 0 0 1px rgba(255,152,0,.35),0 0 30px rgba(255,152,0,.09)}
+.pcard.rest-card{opacity:.45;pointer-events:none}
 
-/* ============================================================
-   COUNTDOWN
-============================================================ */
-.counter-strip {
-  display: flex; align-items: stretch; gap: 1px;
-  background: var(--blood);
-  border: 1px solid rgba(196,30,58,.35);
-  margin-bottom: 3.5rem;
-  position: relative; overflow: hidden;
-}
-.counter-strip::after {
-  content: '';
-  position: absolute; top: 0; left: -100%;
-  width: 40%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(245,166,35,.06), transparent);
-  animation: scanH 4s ease-in-out infinite;
-}
-@keyframes scanH { to { left: 150%; } }
+.pcard-head{padding:1.1rem 1.2rem .85rem;border-bottom:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:flex-start}
+.pc-day{font-family:var(--fm);font-size:.52rem;letter-spacing:.28em;color:var(--fog);margin-bottom:.3rem}
+.pc-name{font-family:var(--fd);font-size:1.85rem;line-height:.9;letter-spacing:.05em;color:var(--text);transition:color .2s}
+.pcard:hover .pc-name{color:var(--ember2)}
+.pcard.a-card:hover .pc-name{color:var(--lime2)}
+.pcard.dl-card:hover .pc-name{color:var(--dl2)}
+.pc-icon{font-size:1.4rem;opacity:.65;transition:opacity .2s,transform .2s}
+.pcard:hover .pc-icon{opacity:1;transform:scale(1.12) rotate(-4deg)}
 
-.counter-seg {
-  flex: 1; background: var(--ink2);
-  padding: 1.6rem 1rem;
-  text-align: center;
-}
-.counter-seg-val {
-  font-family: var(--font-d);
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  line-height: 1; color: var(--ember2);
-  text-shadow: 0 0 30px rgba(245,166,35,.5);
-  display: block;
-}
-.counter-seg-label {
-  font-family: var(--font-m); font-size: .58rem;
-  letter-spacing: .25em; color: var(--text2);
-  margin-top: .3rem;
-}
-.counter-main {
-  flex: 3; display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  padding: 1.6rem 2rem; background: var(--ink2);
-}
-.counter-main-label {
-  font-family: var(--font-m); font-size: .62rem;
-  letter-spacing: .28em; color: var(--text2);
-  margin-bottom: .5rem;
-}
-.progress-bar-wrap {
-  width: 100%; height: 6px;
-  background: rgba(255,255,255,.05);
-  border-radius: 3px; overflow: hidden;
-}
-.progress-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--blood), var(--ember), var(--ember2));
-  border-radius: 3px;
-  transition: width 1.2s ease;
-  box-shadow: 0 0 12px rgba(245,166,35,.5);
-}
-.progress-pct {
-  font-family: var(--font-m); font-size: .6rem;
-  color: var(--ember); margin-top: .35rem;
-}
+.badge{display:inline-flex;align-items:center;gap:.28rem;font-family:var(--fm);font-size:.5rem;letter-spacing:.15em;padding:.18rem .52rem;margin-top:.45rem;margin-right:.25rem;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%)}
+.bforce  {background:rgba(196,30,58,.16);color:var(--blood2);border:1px solid rgba(196,30,58,.28)}
+.bhyper  {background:rgba(138,43,226,.16);color:var(--violet2);border:1px solid rgba(138,43,226,.28)}
+.bvol    {background:rgba(0,100,200,.16);color:#70b8ff;border:1px solid rgba(0,100,200,.28)}
+.baxp    {background:rgba(245,166,35,.12);color:var(--ember2);border:1px solid rgba(245,166,35,.28)}
+.bathl   {background:rgba(57,255,20,.1);color:var(--lime2);border:1px solid rgba(57,255,20,.28)}
+.bdl     {background:rgba(255,152,0,.14);color:var(--dl2);border:1px solid rgba(255,152,0,.33)}
+.brest   {background:rgba(61,80,104,.15);color:var(--fog);border:1px solid rgba(61,80,104,.28)}
 
-/* ============================================================
-   WEEK TIMELINE
-============================================================ */
-.timeline-wrap {
-  margin-bottom: 3.5rem;
-  overflow-x: auto;
-  padding-bottom: .5rem;
-}
-.timeline-scroll {
-  display: flex; gap: 4px;
-  min-width: max-content;
-}
-.week-dot {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 4px;
-  cursor: default;
-}
-.week-dot-circle {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--fog);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-d);
-  font-size: .95rem;
-  color: var(--fog);
-  transition: all .2s;
-  position: relative;
-}
-.week-dot.done .week-dot-circle {
-  background: rgba(196,30,58,.2);
-  border-color: var(--blood);
-  color: var(--blood2);
-}
-.week-dot.current .week-dot-circle {
-  background: rgba(245,166,35,.15);
-  border-color: var(--ember);
-  color: var(--ember2);
-  box-shadow: 0 0 16px rgba(245,166,35,.4);
-  animation: currentPulse 2s ease-in-out infinite;
-}
-@keyframes currentPulse {
-  0%,100% { box-shadow: 0 0 16px rgba(245,166,35,.4); }
-  50%      { box-shadow: 0 0 28px rgba(245,166,35,.7); }
-}
-.week-dot.deload .week-dot-circle {
-  background: rgba(255,152,0,.15);
-  border-color: var(--deload-c);
-  color: var(--deload2);
-}
-.week-dot.deload.current .week-dot-circle {
-  box-shadow: 0 0 16px rgba(255,152,0,.5);
-  animation: deloadPulse 2s ease-in-out infinite;
-}
-@keyframes deloadPulse {
-  0%,100% { box-shadow: 0 0 16px rgba(255,152,0,.4); }
-  50%      { box-shadow: 0 0 28px rgba(255,152,0,.8); }
-}
-.week-dot.test .week-dot-circle {
-  background: rgba(0,212,255,.1);
-  border-color: var(--sky);
-  color: var(--sky);
-}
-.week-dot-label {
-  font-family: var(--font-m); font-size: .5rem;
-  letter-spacing: .1em; color: var(--fog);
-  text-align: center;
-}
-.week-dot.deload .week-dot-label { color: var(--deload-c); }
-.week-dot.test .week-dot-label { color: var(--sky); }
-.week-dot.current .week-dot-label { color: var(--ember); }
+.pcard-body{padding:.8rem 1.2rem}
+.ex-list{list-style:none}
+.ex-list li{display:grid;grid-template-columns:1.2rem 1fr auto;align-items:start;gap:.4rem;padding:.34rem 0;font-size:.76rem;line-height:1.4;color:var(--text2);border-bottom:1px solid rgba(255,255,255,.022);transition:color .18s,padding-left .18s}
+.ex-list li:last-child{border-bottom:none}
+.ex-list li:hover{color:var(--text);padding-left:.12rem}
+.ex-n{font-family:var(--fd);font-size:.92rem;color:rgba(196,30,58,.4);line-height:1.2}
+.ex-sets{font-family:var(--fm);font-size:.64rem;color:var(--ember);white-space:nowrap;letter-spacing:.03em}
+.ex-sets.dl-s{color:var(--dl)}
+.ex-tag{font-size:.57rem;display:block;margin-top:.08rem}
+.ex-expl{color:var(--lime)}
+.ex-super{color:var(--violet2)}
+.ex-note{color:var(--dl2)}
 
-/* ============================================================
-   SECTION HEADER
-============================================================ */
-.s-header {
-  display: flex; align-items: baseline; gap: 1.5rem;
-  margin-bottom: 2rem; padding-bottom: 1rem;
-  border-bottom: 1px solid var(--line);
-}
-.s-title {
-  font-family: var(--font-d);
-  font-size: clamp(1.5rem, 4vw, 2.6rem);
-  letter-spacing: .12em; color: var(--text);
-  line-height: 1;
-}
-.s-title span { color: var(--blood2); }
-.s-num {
-  font-family: var(--font-m); font-size: .68rem;
-  color: var(--fog); letter-spacing: .2em;
-  margin-left: auto;
-}
+.pcard-foot{padding:.55rem 1.2rem .8rem;display:flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--fog);border-top:1px solid rgba(255,255,255,.04)}
+.pcard-foot i{color:var(--blood)}
+.pcard.a-card .pcard-foot i{color:var(--lime)}
+.pcard.dl-card .pcard-foot i{color:var(--dl)}
+.deload-overlay{position:absolute;top:7px;right:9px;font-family:var(--fd);font-size:.85rem;letter-spacing:.14em;color:rgba(255,152,0,.22);pointer-events:none}
 
-/* ============================================================
-   WEEK INDICATOR BADGE
-============================================================ */
-.week-indicator {
-  display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding: .8rem 1.4rem;
-  background: var(--ink2);
-  border: 1px solid var(--line);
-  position: relative; overflow: hidden;
-}
-.week-indicator::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: var(--ember);
-}
-.week-indicator.is-deload::before { background: var(--deload-c); }
-.week-indicator.is-test::before { background: var(--sky); }
+/* ══════════ SENSEI PANEL ══════════ */
+.sensei-wrap{background:linear-gradient(135deg,var(--ink2),var(--ink3));border:1px solid var(--line);padding:2.2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.sensei-wrap::before{content:'師';position:absolute;right:-2rem;bottom:-2rem;font-family:serif;font-size:14rem;color:rgba(245,166,35,.022);pointer-events:none;line-height:1}
+.sensei-head{display:flex;align-items:center;gap:1.4rem;margin-bottom:1.8rem;padding-bottom:1.4rem;border-bottom:1px solid var(--line)}
+.sensei-orb{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(245,166,35,.2),rgba(196,30,58,.1));border:1px solid rgba(245,166,35,.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;box-shadow:0 0 28px rgba(245,166,35,.12)}
+.sensei-title{font-family:var(--fd);font-size:1.6rem;letter-spacing:.1em;color:var(--ember2);line-height:1}
+.sensei-sub{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;color:var(--steel);margin-top:.28rem}
 
-.wi-week {
-  font-family: var(--font-d);
-  font-size: 1.6rem; letter-spacing: .1em;
-  color: var(--ember2); line-height: 1;
-}
-.wi-week.is-deload { color: var(--deload2); }
-.wi-week.is-test { color: var(--sky); }
-.wi-desc {
-  font-family: var(--font-m); font-size: .62rem;
-  letter-spacing: .2em; color: var(--text2);
-}
-.wi-badge {
-  margin-left: auto;
-  display: inline-flex; align-items: center; gap: .4rem;
-  font-family: var(--font-m); font-size: .6rem;
-  letter-spacing: .15em;
-  padding: .3rem .9rem;
-  clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
-}
-.wi-badge.normal { background: rgba(196,30,58,.2); color: var(--blood2); border: 1px solid rgba(196,30,58,.35); }
-.wi-badge.deload { background: rgba(255,152,0,.2); color: var(--deload2); border: 1px solid rgba(255,152,0,.4); }
-.wi-badge.test   { background: rgba(0,212,255,.1); color: var(--sky);     border: 1px solid rgba(0,212,255,.3); }
+.advice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.85rem}
+.adv-card{background:var(--ghost);border:1px solid rgba(245,166,35,.07);padding:.95rem 1.1rem;transition:border-color .2s,background .2s}
+.adv-card:hover{border-color:rgba(245,166,35,.2);background:rgba(245,166,35,.03)}
+.adv-title{font-family:var(--fd);font-size:.95rem;letter-spacing:.08em;color:var(--ember);margin-bottom:.4rem;display:flex;align-items:center;gap:.38rem}
+.adv-title i{color:var(--blood2);font-size:.78rem}
+.adv-card p{font-size:.74rem;line-height:1.65;color:var(--text2)}
+.adv-card p strong{color:var(--text)}
+.sci-src{font-family:var(--fm);font-size:.48rem;letter-spacing:.1em;color:rgba(0,212,255,.45);margin-top:.45rem;border-top:1px solid rgba(0,212,255,.07);padding-top:.32rem}
 
-/* ============================================================
-   PROGRAM GRID
-============================================================ */
-.prog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
-  margin-bottom: 4rem;
-}
+/* ══════════ MACROS ══════════ */
+.macros-wrap{background:linear-gradient(180deg,var(--ink3),var(--ink2));border:1px solid var(--line);padding:2.2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.macros-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blood),var(--ember),var(--sky),var(--lime),var(--ember),var(--blood));background-size:400%;animation:rainbowLine 6s linear infinite}
+@keyframes rainbowLine{to{background-position:400%}}
+.macro-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:1px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.03);margin:1.8rem 0 1.4rem;overflow:hidden}
+.mc{background:var(--ink2);padding:1rem .9rem;text-align:center}
+.mc-val{font-family:var(--fd);font-size:2rem;line-height:1;color:var(--ember2);text-shadow:0 0 18px rgba(245,166,35,.28)}
+.mc-unit{font-family:var(--fm);font-size:.52rem;color:var(--fog);letter-spacing:.14em;margin-top:.2rem}
+.rec-row{display:flex;flex-wrap:wrap;gap:.4rem}
+.rec-chip{display:inline-flex;align-items:center;gap:.32rem;background:rgba(196,30,58,.06);border:1px solid rgba(196,30,58,.16);padding:.28rem .75rem;font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;color:var(--steel);transition:border-color .2s,color .2s}
+.rec-chip:hover{border-color:rgba(196,30,58,.4);color:var(--text)}
+.rec-chip i{color:var(--blood);font-size:.65rem}
 
-/* ── CARD BASE ── */
-.pcard {
-  position: relative;
-  background: var(--ink2);
-  border: 1px solid rgba(143,168,192,0.08);
-  border-top-color: rgba(196,30,58,.3);
-  cursor: pointer;
-  transition: transform .22s cubic-bezier(.23,1,.32,1), box-shadow .22s;
-  overflow: hidden;
-}
-.pcard::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; width: 3px; height: 0;
-  background: linear-gradient(to bottom, var(--ember2), var(--blood));
-  transition: height .3s ease;
-}
-.pcard:hover::before { height: 100%; }
-.pcard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(196,30,58,.4), 0 0 40px rgba(196,30,58,.1);
-}
-.pcard::after {
-  content: ''; position: absolute; bottom: 0; right: 0;
-  width: 18px; height: 18px;
-  border-right: 1px solid rgba(196,30,58,.25);
-  border-bottom: 1px solid rgba(196,30,58,.25);
-}
+/* ══════════ SCIENCE SECTION ══════════ */
+.sci-wrap{background:linear-gradient(135deg,var(--ink2),var(--ink3));border:1px solid rgba(0,212,255,.1);padding:2.2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.sci-wrap::before{content:'科学';position:absolute;right:-1rem;bottom:-1.5rem;font-family:serif;font-size:11rem;color:rgba(0,212,255,.022);pointer-events:none;line-height:1}
+.sci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.85rem;margin-top:1.4rem}
+.sci-card{background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.09);padding:.95rem 1.1rem}
+.sci-card-title{font-family:var(--fd);font-size:.9rem;letter-spacing:.1em;color:var(--sky);margin-bottom:.35rem;display:flex;align-items:center;gap:.38rem}
+.sci-card-title i{font-size:.72rem}
+.sci-card p{font-size:.73rem;line-height:1.6;color:var(--text2)}
+.sci-card p strong{color:var(--sky2)}
+.sci-small{font-family:var(--fm);font-size:.47rem;letter-spacing:.1em;color:rgba(0,212,255,.33);margin-top:.38rem}
 
-.pcard-scan {
-  position: absolute; top: -100%; left: 0;
-  width: 100%; height: 40%;
-  background: linear-gradient(to bottom, transparent, rgba(245,166,35,.035), transparent);
-  pointer-events: none; transition: top .5s ease;
-}
-.pcard:hover .pcard-scan { top: 110%; }
+/* ══════════ TEASER ══════════ */
+.teaser-wrap{position:relative;border:1px solid rgba(0,212,255,.13);padding:3rem 2.5rem;margin-bottom:3rem;text-align:center;overflow:hidden}
+.teaser-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,.03) 0%,transparent 50%,rgba(0,212,255,.03) 100%)}
+.teaser-classified{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-12deg);font-family:var(--fd);font-size:clamp(3rem,9vw,7rem);letter-spacing:.3em;color:rgba(196,30,58,.04);pointer-events:none;white-space:nowrap}
+.t-eyebrow{font-family:var(--fm);font-size:.62rem;letter-spacing:.35em;color:var(--sky);margin-bottom:1rem}
+.t-title{font-family:var(--fd);font-size:clamp(1.7rem,5vw,3.6rem);letter-spacing:.15em;color:var(--sky);text-shadow:0 0 40px rgba(0,212,255,.4);line-height:1;margin-bottom:.8rem}
+.t-sub{font-size:.78rem;color:var(--text2);letter-spacing:.1em;margin-bottom:1.4rem}
+.lock-pill{display:inline-flex;align-items:center;gap:.55rem;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.2);color:var(--sky);font-family:var(--fm);font-size:.6rem;letter-spacing:.17em;padding:.48rem 1.3rem}
 
-/* ── ATHLETIC CARD ── */
-.pcard.pcard-athletic {
-  border-top-color: rgba(57,255,20,.4);
-}
-.pcard.pcard-athletic::before {
-  background: linear-gradient(to bottom, var(--lime2), var(--lime));
-}
-.pcard.pcard-athletic:hover {
-  box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(57,255,20,.4), 0 0 40px rgba(57,255,20,.08);
-}
+/* ══════════ FOOTER ══════════ */
+.site-foot{text-align:center;padding:2rem 0 3rem;border-top:1px solid rgba(255,255,255,.04)}
+.site-foot-txt{font-family:var(--fm);font-size:.6rem;letter-spacing:.26em;color:var(--fog)}
+.site-foot-txt span{color:var(--blood)}
 
-/* ── DELOAD CARD ── */
-.pcard.pcard-deload {
-  border-top-color: rgba(255,152,0,.5);
-  opacity: .9;
-}
-.pcard.pcard-deload::before {
-  background: linear-gradient(to bottom, var(--deload2), var(--deload-c));
-}
-.pcard.pcard-deload:hover {
-  box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(255,152,0,.4), 0 0 40px rgba(255,152,0,.1);
-}
-.deload-overlay {
-  position: absolute; top: 6px; right: 8px;
-  font-family: var(--font-d);
-  font-size: .9rem; letter-spacing: .15em;
-  color: rgba(255,152,0,.25);
-  pointer-events: none;
-}
-
-/* ── REST CARD ── */
-.pcard.pcard-rest { opacity: .5; cursor: default; }
-.pcard.pcard-rest:hover { transform: none; box-shadow: none; }
-.pcard.pcard-rest::before { display: none; }
-
-/* ── CARD HEADER ── */
-.pcard-head {
-  padding: 1.2rem 1.3rem 1rem;
-  display: flex; justify-content: space-between; align-items: flex-start;
-  border-bottom: 1px solid rgba(255,255,255,.04);
-  position: relative;
-}
-.pcard-day {
-  font-family: var(--font-m); font-size: .56rem;
-  letter-spacing: .3em; color: var(--fog);
-  margin-bottom: .35rem;
-}
-.pcard-name {
-  font-family: var(--font-d); font-size: 2rem;
-  line-height: .9; letter-spacing: .06em; color: var(--text);
-  transition: color .2s;
-}
-.pcard:hover .pcard-name { color: var(--ember2); }
-.pcard.pcard-athletic:hover .pcard-name { color: var(--lime2); }
-.pcard.pcard-deload:hover .pcard-name { color: var(--deload2); }
-
-.pcard-icon {
-  font-size: 1.5rem; opacity: .7;
-  transition: opacity .2s, transform .2s;
-}
-.pcard:hover .pcard-icon { opacity: 1; transform: scale(1.1) rotate(-5deg); }
-
-/* BADGES */
-.badge {
-  display: inline-flex; align-items: center; gap: .3rem;
-  font-family: var(--font-m); font-size: .53rem;
-  letter-spacing: .18em; padding: .2rem .55rem;
-  margin-top: .5rem; margin-right: .3rem;
-  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
-}
-.b-force     { background: rgba(196,30,58,.18);  color: var(--blood2);  border: 1px solid rgba(196,30,58,.3); }
-.b-hyper     { background: rgba(138,43,226,.18); color: var(--violet2); border: 1px solid rgba(138,43,226,.3); }
-.b-volume    { background: rgba(0,100,200,.18);  color: #70b8ff;        border: 1px solid rgba(0,100,200,.3); }
-.b-athletic  { background: rgba(57,255,20,.1);   color: var(--lime2);   border: 1px solid rgba(57,255,20,.3); }
-.b-explosive { background: rgba(255,209,0,.12);  color: var(--ember2);  border: 1px solid rgba(245,166,35,.3); }
-.b-deload    { background: rgba(255,152,0,.14);  color: var(--deload2); border: 1px solid rgba(255,152,0,.35); }
-.b-rest      { background: rgba(61,80,104,.18);  color: var(--fog);     border: 1px solid rgba(61,80,104,.3); }
-.b-test      { background: rgba(0,212,255,.1);   color: var(--sky);     border: 1px solid rgba(0,212,255,.3); }
-
-/* ── EXERCISE LIST ── */
-.pcard-body { padding: .9rem 1.3rem; }
-.ex-list { list-style: none; }
-.ex-list li {
-  display: grid;
-  grid-template-columns: 1.3rem 1fr auto;
-  align-items: start; gap: .45rem;
-  padding: .38rem 0; font-size: .78rem; line-height: 1.4;
-  color: var(--text2);
-  border-bottom: 1px solid rgba(255,255,255,.025);
-  transition: color .2s, padding-left .2s;
-}
-.ex-list li:last-child { border-bottom: none; }
-.ex-list li:hover { color: var(--text); padding-left: .15rem; }
-.ex-n {
-  font-family: var(--font-d); font-size: .95rem;
-  color: rgba(196,30,58,.45); line-height: 1.2;
-}
-.ex-sets {
-  font-family: var(--font-m); font-size: .67rem;
-  color: var(--ember); white-space: nowrap; letter-spacing: .03em;
-}
-.ex-sets.deload-sets { color: var(--deload-c); }
-.ex-super { color: var(--violet2); font-size: .6rem; display: block; }
-.ex-expl  { color: var(--lime);    font-size: .6rem; display: block; }
-
-/* ── CARD FOOTER ── */
-.pcard-foot {
-  padding: .6rem 1.3rem .85rem;
-  display: flex; align-items: center; gap: .45rem;
-  font-family: var(--font-m); font-size: .58rem;
-  letter-spacing: .1em; color: var(--fog);
-  border-top: 1px solid rgba(255,255,255,.04);
-}
-.pcard-foot i { color: var(--blood); }
-.pcard.pcard-athletic .pcard-foot i { color: var(--lime); }
-.pcard.pcard-deload   .pcard-foot i { color: var(--deload-c); }
-
-/* ── OPT TAG ── */
-.opt-tag {
-  font-family: var(--font-m); font-size: .5rem;
-  color: var(--fog); letter-spacing: .18em;
-  margin-left: .4rem; vertical-align: middle;
-}
-
-/* ============================================================
-   SESSION TRACKER
-============================================================ */
-.tracker-strip {
-  display: flex; gap: 6px; flex-wrap: wrap;
-  margin-bottom: 2rem;
-  padding: 1.2rem 1.5rem;
-  background: var(--ink2);
-  border: 1px solid rgba(245,166,35,.1);
-}
-.tracker-strip-label {
-  font-family: var(--font-m); font-size: .6rem;
-  letter-spacing: .25em; color: var(--text2);
-  width: 100%; margin-bottom: .4rem;
-}
-.track-btn {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 3px;
-  background: var(--ink3);
-  border: 1px solid var(--fog);
-  padding: .4rem .7rem;
-  cursor: pointer;
-  transition: all .15s;
-  min-width: 52px;
-}
-.track-btn.done {
-  background: rgba(196,30,58,.15);
-  border-color: var(--blood);
-}
-.track-btn.done-dl {
-  background: rgba(255,152,0,.15);
-  border-color: var(--deload-c);
-}
-.track-btn-day {
-  font-family: var(--font-m); font-size: .52rem;
-  letter-spacing: .1em; color: var(--fog);
-}
-.track-btn.done     .track-btn-day { color: var(--blood2); }
-.track-btn.done-dl  .track-btn-day { color: var(--deload-c); }
-.track-btn-check {
-  font-size: .85rem; color: var(--fog);
-}
-.track-btn.done     .track-btn-check { color: var(--blood2); }
-.track-btn.done-dl  .track-btn-check { color: var(--deload-c); }
-
-/* ============================================================
-   SENSEI SECTION
-============================================================ */
-.sensei-wrap {
-  position: relative;
-  background: linear-gradient(135deg, var(--ink2) 0%, var(--ink3) 100%);
-  border: 1px solid var(--line);
-  padding: 2.5rem; margin-bottom: 3.5rem; overflow: hidden;
-}
-.sensei-wrap::before {
-  content: '師'; position: absolute; right: -2rem; bottom: -2rem;
-  font-family: serif; font-size: 15rem;
-  color: rgba(245,166,35,.02); pointer-events: none; line-height: 1;
-}
-.sensei-top {
-  display: flex; align-items: center; gap: 1.5rem;
-  margin-bottom: 2rem; padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--line);
-}
-.sensei-orb {
-  width: 60px; height: 60px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(245,166,35,.2), rgba(196,30,58,.1));
-  border: 1px solid rgba(245,166,35,.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.7rem; flex-shrink: 0;
-  box-shadow: 0 0 30px rgba(245,166,35,.12);
-}
-.sensei-meta-title {
-  font-family: var(--font-d); font-size: 1.7rem;
-  letter-spacing: .1em; color: var(--ember2); line-height: 1;
-}
-.sensei-meta-sub {
-  font-family: var(--font-m); font-size: .6rem;
-  letter-spacing: .2em; color: var(--steel); margin-top: .3rem;
-}
-
-.advice-tabs {
-  display: flex; gap: 4px; margin-bottom: 1.5rem; flex-wrap: wrap;
-}
-.adv-tab {
-  font-family: var(--font-m); font-size: .58rem;
-  letter-spacing: .18em; color: var(--fog);
-  padding: .3rem .9rem;
-  background: var(--ink3);
-  border: 1px solid var(--fog);
-  cursor: pointer;
-  transition: all .15s;
-  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
-}
-.adv-tab.active {
-  background: rgba(196,30,58,.2);
-  border-color: var(--blood);
-  color: var(--blood2);
-}
-.adv-tab.active.deload-tab {
-  background: rgba(255,152,0,.2);
-  border-color: var(--deload-c);
-  color: var(--deload2);
-}
-
-.advice-panel { display: none; }
-.advice-panel.active { display: block; }
-
-.advice-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
-  gap: .9rem;
-}
-.advice-card {
-  background: var(--ghost);
-  border: 1px solid rgba(245,166,35,.07);
-  padding: 1rem 1.2rem;
-  transition: border-color .2s, background .2s;
-}
-.advice-card:hover {
-  border-color: rgba(245,166,35,.2);
-  background: rgba(245,166,35,.035);
-}
-.advice-card.deload-card {
-  border-color: rgba(255,152,0,.12);
-}
-.advice-card.deload-card:hover {
-  border-color: rgba(255,152,0,.3);
-  background: rgba(255,152,0,.04);
-}
-.advice-card-title {
-  font-family: var(--font-d); font-size: 1rem;
-  letter-spacing: .08em; color: var(--ember);
-  margin-bottom: .45rem;
-  display: flex; align-items: center; gap: .4rem;
-}
-.advice-card-title i { color: var(--blood2); font-size: .82rem; }
-.advice-card.deload-card .advice-card-title { color: var(--deload2); }
-.advice-card.deload-card .advice-card-title i { color: var(--deload-c); }
-.advice-card p { font-size: .76rem; line-height: 1.65; color: var(--text2); }
-.advice-card p strong { color: var(--text); }
-
-/* Science source badge */
-.science-src {
-  font-family: var(--font-m); font-size: .5rem;
-  letter-spacing: .12em; color: rgba(0,212,255,.5);
-  margin-top: .5rem; border-top: 1px solid rgba(0,212,255,.08);
-  padding-top: .35rem;
-}
-
-/* ============================================================
-   MACROS
-============================================================ */
-.macros-wrap {
-  background: linear-gradient(180deg, var(--ink3) 0%, var(--ink2) 100%);
-  border: 1px solid var(--line);
-  padding: 2.5rem; margin-bottom: 3.5rem;
-  position: relative; overflow: hidden;
-}
-.macros-wrap::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--blood), var(--ember), var(--sky), var(--lime), var(--ember), var(--blood));
-  background-size: 400%;
-  animation: rainbowLine 6s linear infinite;
-}
-@keyframes rainbowLine { to { background-position: 400%; } }
-
-.macro-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px,1fr));
-  gap: 1px;
-  background: rgba(255,255,255,.035);
-  border: 1px solid rgba(255,255,255,.035);
-  margin: 2rem 0 1.5rem; overflow: hidden;
-}
-.macro-cell { background: var(--ink2); padding: 1.1rem 1rem; text-align: center; }
-.macro-val {
-  font-family: var(--font-d); font-size: 2.2rem;
-  line-height: 1; color: var(--ember2);
-  text-shadow: 0 0 20px rgba(245,166,35,.3);
-}
-.macro-unit {
-  font-family: var(--font-m); font-size: .57rem;
-  color: var(--fog); letter-spacing: .15em; margin-top: .2rem;
-}
-
-.recovery-row {
-  display: flex; flex-wrap: wrap; gap: .5rem;
-}
-.rec-chip {
-  display: inline-flex; align-items: center; gap: .35rem;
-  background: rgba(196,30,58,.07);
-  border: 1px solid rgba(196,30,58,.18);
-  padding: .32rem .8rem;
-  font-family: var(--font-m); font-size: .58rem;
-  letter-spacing: .1em; color: var(--steel);
-  transition: border-color .2s, color .2s;
-}
-.rec-chip:hover { border-color: rgba(196,30,58,.45); color: var(--text); }
-.rec-chip i { color: var(--blood); font-size: .68rem; }
-
-/* ============================================================
-   SCIENCE SECTION
-============================================================ */
-.science-wrap {
-  background: linear-gradient(135deg, var(--ink2), var(--ink3));
-  border: 1px solid rgba(0,212,255,.12);
-  padding: 2.2rem; margin-bottom: 3.5rem; position: relative; overflow: hidden;
-}
-.science-wrap::before {
-  content: '科学';
-  position: absolute; right: -1rem; bottom: -1.5rem;
-  font-family: serif; font-size: 12rem;
-  color: rgba(0,212,255,.025); pointer-events: none; line-height: 1;
-}
-.science-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
-  gap: .9rem; margin-top: 1.5rem;
-}
-.sci-card {
-  background: rgba(0,212,255,.04);
-  border: 1px solid rgba(0,212,255,.1);
-  padding: 1rem 1.2rem;
-}
-.sci-card-title {
-  font-family: var(--font-d); font-size: .95rem;
-  letter-spacing: .1em; color: var(--sky);
-  margin-bottom: .4rem;
-  display: flex; align-items: center; gap: .4rem;
-}
-.sci-card-title i { font-size: .75rem; }
-.sci-card p { font-size: .74rem; line-height: 1.6; color: var(--text2); }
-.sci-card p strong { color: var(--sky2); }
-.sci-src {
-  font-family: var(--font-m); font-size: .48rem;
-  letter-spacing: .1em; color: rgba(0,212,255,.35);
-  margin-top: .4rem;
-}
-
-/* ============================================================
-   PHASE 2 TEASER
-============================================================ */
-.teaser-wrap {
-  position: relative;
-  border: 1px solid rgba(0,212,255,.14);
-  padding: 3rem 2.5rem; margin-bottom: 3.5rem;
-  text-align: center; overflow: hidden;
-}
-.teaser-wrap::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(0,212,255,.035) 0%, transparent 50%, rgba(0,212,255,.035) 100%);
-}
-.teaser-classified {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%) rotate(-12deg);
-  font-family: var(--font-d);
-  font-size: clamp(3.5rem, 10vw, 7rem);
-  letter-spacing: .3em; color: rgba(196,30,58,.04);
-  pointer-events: none; white-space: nowrap;
-}
-.teaser-eyebrow {
-  font-family: var(--font-m); font-size: .63rem;
-  letter-spacing: .38em; color: var(--sky); margin-bottom: 1rem;
-}
-.teaser-title {
-  font-family: var(--font-d);
-  font-size: clamp(1.8rem, 5.5vw, 3.8rem);
-  letter-spacing: .15em; color: var(--sky);
-  text-shadow: 0 0 40px rgba(0,212,255,.4);
-  line-height: 1; margin-bottom: .8rem;
-}
-.teaser-sub { font-size: .8rem; color: var(--text2); letter-spacing: .1em; margin-bottom: 1.5rem; }
-.lock-pill {
-  display: inline-flex; align-items: center; gap: .6rem;
-  background: rgba(0,212,255,.06);
-  border: 1px solid rgba(0,212,255,.2);
-  color: var(--sky);
-  font-family: var(--font-m); font-size: .62rem;
-  letter-spacing: .18em; padding: .5rem 1.4rem;
-}
-
-/* ============================================================
-   FOOTER
-============================================================ */
-.site-foot {
-  text-align: center; padding: 2rem 0 3.5rem;
-  border-top: 1px solid rgba(255,255,255,.04);
-}
-.site-foot-text {
-  font-family: var(--font-m); font-size: .62rem;
-  letter-spacing: .28em; color: var(--fog);
-}
-.site-foot-text span { color: var(--blood); }
-
-/* ============================================================
-   TOAST
-============================================================ */
-#toast-container {
-  position: fixed; bottom: 2rem; right: 2rem;
-  z-index: 9999;
-  display: flex; flex-direction: column; gap: .6rem;
-  pointer-events: none;
-}
-.toast {
-  background: var(--ink2);
-  border: 1px solid rgba(196,30,58,.35);
-  border-left: 3px solid var(--blood);
-  padding: .9rem 1.3rem;
-  max-width: 310px;
-  pointer-events: all; position: relative; overflow: hidden;
-  transform: translateX(120%);
-  transition: transform .4s cubic-bezier(.23,1,.32,1);
-  box-shadow: 0 8px 40px rgba(0,0,0,.6);
-}
-.toast.deload-toast { border-left-color: var(--deload-c); }
-.toast.show { transform: translateX(0); }
-.toast-bar {
-  position: absolute; bottom: 0; left: 0; height: 2px;
-  background: linear-gradient(90deg, var(--blood), var(--ember));
-  animation: toastTimer 4s linear forwards;
-}
-.toast.deload-toast .toast-bar { background: linear-gradient(90deg, var(--deload-c), var(--deload2)); }
-@keyframes toastTimer { from{width:100%} to{width:0%} }
-.toast-title {
-  font-family: var(--font-d); font-size: 1.05rem;
-  letter-spacing: .1em; color: var(--ember2); margin-bottom: .2rem;
-}
-.toast.deload-toast .toast-title { color: var(--deload2); }
-.toast-msg {
-  font-family: var(--font-m); font-size: .62rem;
-  letter-spacing: .06em; color: var(--steel); line-height: 1.6;
-}
-.toast-close {
-  position: absolute; top: .5rem; right: .6rem;
-  background: none; border: none;
-  color: var(--fog); cursor: pointer;
-  font-size: .78rem; pointer-events: all;
-}
-
-/* ============================================================
-   PARTICLES & FX
-============================================================ */
-.particle {
-  position: fixed; border-radius: 50%; pointer-events: none;
-  z-index: 9998;
-  animation: pFly var(--dur) ease-out forwards;
-}
-@keyframes pFly {
-  0%   { transform: translate(0,0) scale(1) rotate(0deg); opacity: 1; }
-  100% { transform: translate(var(--tx),var(--ty)) scale(0) rotate(var(--rot)); opacity: 0; }
-}
-.impact-word {
-  position: fixed; pointer-events: none; z-index: 9997;
-  font-family: var(--font-d); letter-spacing: .06em;
-  color: var(--ember2);
-  text-shadow: 0 0 20px var(--ember), 2px 2px 0 var(--blood);
-  animation: impactAnim .7s cubic-bezier(.23,1,.32,1) forwards;
-  transform-origin: center; white-space: nowrap;
-}
-.impact-word.athletic {
-  color: var(--lime2);
-  text-shadow: 0 0 20px var(--lime), 2px 2px 0 #006600;
-}
-.impact-word.deload {
-  color: var(--deload2);
-  text-shadow: 0 0 20px var(--deload-c), 2px 2px 0 rgba(255,152,0,.6);
-}
-@keyframes impactAnim {
-  0%   { transform: translate(-50%,-50%) scale(0.2) rotate(-8deg); opacity: 1; }
-  50%  { transform: translate(-50%,-65%) scale(1.3) rotate(3deg); opacity: 1; }
-  100% { transform: translate(-50%,-90%) scale(.9) rotate(-2deg); opacity: 0; }
-}
-.ripple {
-  position: fixed; border-radius: 50%;
-  border: 1px solid rgba(196,30,58,.5);
-  pointer-events: none; z-index: 9996;
-  animation: rippleAnim .6s ease-out forwards;
-}
-@keyframes rippleAnim {
-  from { transform: translate(-50%,-50%) scale(0); opacity: .8; }
-  to   { transform: translate(-50%,-50%) scale(1); opacity: 0; }
-}
-
-/* ============================================================
-   RESPONSIVE
-============================================================ */
-@media (max-width: 1100px) { .prog-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 700px) {
-  .prog-grid { grid-template-columns: 1fr; }
-  .hero-name { font-size: clamp(4rem, 22vw, 7rem); }
-  .counter-strip { flex-direction: column; }
-  .sensei-wrap, .macros-wrap, .teaser-wrap { padding: 1.5rem 1.1rem; }
-  .macro-grid { grid-template-columns: repeat(2, 1fr); }
-  .wrap { padding: 0 .9rem; }
-  .start-config { padding: 1rem; gap: 1rem; }
-  #deload-banner { padding: .4rem 1rem; }
-  #deload-banner-txt { font-size: .6rem; }
-}
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--blood); }
+/* ══════════ RESPONSIVE ══════════ */
+@media(max-width:1100px){.prog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){
+  .prog-grid{grid-template-columns:1fr}
+  .hero-name{font-size:clamp(4rem,22vw,7rem)}
+  .stats-bar{flex-wrap:wrap}
+  .stat-cell{min-width:calc(50% - 1px)}
+  .sensei-wrap,.macros-wrap,.sci-wrap,.teaser-wrap{padding:1.4rem 1rem}
+  .macro-grid{grid-template-columns:repeat(2,1fr)}
+  .week-head{padding:.9rem 1rem}
+  .wrap{padding:0 .8rem}
+  .prog-grid{padding:.9rem .9rem 1.1rem}
+}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--blood)}
 </style>
 </head>
 <body>
-
-<!-- DELOAD BANNER -->
-<div id="deload-banner">
-  <span class="deload-pulse"></span>
-  <span id="deload-banner-txt">▸ SEMAINE DE DELOAD ACTIVE · CHARGES -50% · RÉCUPÉRATION MAXIMALE · PAS D'EXPLOSIF ▸</span>
-  <span class="deload-pulse"></span>
-</div>
-
 <div class="vignette"></div>
 <div class="glow-top"></div>
-<div id="toast-container"></div>
 
 <div class="wrap">
 
-  <!-- ═══════════════ HEADER ═══════════════ -->
-  <header class="site-header">
-    <div class="kanji-bg">神話</div>
-    <div class="header-pill">PROGRAMME ELITE · BLOC I · 12 SEMAINES · SCIENCE-BASED</div>
-    <div class="hero">
-      <div class="hero-eyebrow">SHINWA PROJECT V2 · DOSSIER CLASSIFIÉ · WAJDI EDITION</div>
-      <div class="hero-name">WAJDI</div>
-      <div class="hero-project">— THE IRON OATH —</div>
-      <div class="hero-tagline">// 1M86 · 71KG · 18-20% BF · OBJECTIF : SPRINTEUR BARAQUÉ & PROPRE</div>
-    </div>
-    <div class="h-rule">
-      <div class="h-rule-line"></div>
-      <span style="color:var(--blood);font-size:.6rem"><i class="fas fa-circle-notch fa-spin"></i></span>
-      <div class="h-rule-line" style="background:linear-gradient(90deg,transparent,rgba(196,30,58,.2),var(--blood))"></div>
-    </div>
-  </header>
+<!-- ══════════ HERO ══════════ -->
+<section class="hero-section">
+  <div class="kanji-bg">神話</div>
+  <div class="hero-pill">PROGRAMME ELITE · BLOC I · 12 SEMAINES · SCIENCE-BASED</div>
+  <div class="hero-eyebrow">SHINWA PROJECT V2 · DOSSIER CLASSIFIÉ · WAJDI EDITION</div>
+  <div class="hero-name">WAJDI</div>
+  <div class="hero-sub">— THE IRON OATH —</div>
+  <div class="hero-tagline">// 1M86 · 71KG · 18-20% BF · OBJECTIF : SPRINTEUR BARAQUÉ &amp; PROPRE</div>
+</section>
 
-  <!-- ═══════════════ CONFIG DATE ═══════════════ -->
-  <div class="start-config">
+<!-- ══════════ STATS ══════════ -->
+<div class="stats-bar">
+  <div class="stat-cell"><div class="stat-val">84</div><div class="stat-label">JOURS</div></div>
+  <div class="stat-cell"><div class="stat-val">12</div><div class="stat-label">SEMAINES</div></div>
+  <div class="stat-cell"><div class="stat-val">2×</div><div class="stat-label">PPL/SEMAINE</div></div>
+  <div class="stat-cell"><div class="stat-val">S4·S8</div><div class="stat-label">DELOAD</div></div>
+  <div class="stat-cell"><div class="stat-val">S12</div><div class="stat-label">TEST FINAL</div></div>
+  <div class="stat-cell"><div class="stat-val">1M86</div><div class="stat-label">MORPHO</div></div>
+</div>
+
+<!-- ══════════ WEEK OVERVIEW ══════════ -->
+<div class="s-header">
+  <div class="s-title"><span>//</span> CHRONOLOGIE 12 SEMAINES</div>
+  <div class="s-num">CLIQUE POUR OUVRIR · ROUGE=NORMAL · OR=DELOAD · CYAN=TEST</div>
+</div>
+
+<div class="week-strip" id="weekStrip"></div>
+
+<!-- ══════════ WEEKS ACCORDION ══════════ -->
+<div id="weekAccordion"></div>
+
+<!-- ══════════ SENSEI ══════════ -->
+<div class="s-header" style="margin-top:1rem">
+  <div class="s-title"><span>//</span> CONSEILS DU SENSEI</div>
+  <div class="s-num">MORPHO 1M86 · SCIENCE-BASED</div>
+</div>
+
+<div class="sensei-wrap">
+  <div class="sensei-head">
+    <div class="sensei-orb">⛩</div>
     <div>
-      <div class="start-config-label">▸ DATE DE DÉBUT DU BLOC I</div>
-      <div style="margin-top:.3rem; display:flex; gap:.8rem; align-items:center; flex-wrap:wrap;">
-        <input type="date" id="startDateInput"/>
-        <button class="btn-set" onclick="setStartDate()">VALIDER</button>
-      </div>
-    </div>
-    <div>
-      <div class="start-config-label">▸ SEMAINE ACTUELLE</div>
-      <div id="current-week-display" style="margin-top:.2rem">—</div>
-    </div>
-    <div class="config-info" id="config-info">Saisir la date de début pour activer le suivi automatique des deloads</div>
-  </div>
-
-  <!-- ═══════════════ COUNTDOWN ═══════════════ -->
-  <div class="counter-strip">
-    <div class="counter-seg">
-      <span class="counter-seg-val" id="daysLeft">84</span>
-      <div class="counter-seg-label">JOURS</div>
-    </div>
-    <div class="counter-seg">
-      <span class="counter-seg-val" id="weeksLeft">12</span>
-      <div class="counter-seg-label">SEMAINES</div>
-    </div>
-    <div class="counter-main">
-      <div class="counter-main-label">▸ PROGRESSION BLOC I</div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
-      </div>
-      <div class="progress-pct" id="progressPct">0% ACCOMPLI · LA LÉGENDE COMMENCE</div>
-    </div>
-    <div class="counter-seg" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.15rem">
-      <span class="counter-seg-val" style="font-size:1.4rem;color:var(--steel)">BLOC</span>
-      <span class="counter-seg-val" style="font-size:3.2rem">I</span>
-      <div class="counter-seg-label">PPL + ATHLÉ</div>
+      <div class="sensei-title">MAÎTRE MORPHO — PROTOCOLE 1M86</div>
+      <div class="sensei-sub">OPTIMISÉ POUR LEVIERS LONGS + ATHLÉTISME · WAJDI 2025 · CONFIDENTIEL</div>
     </div>
   </div>
-
-  <!-- ═══════════════ WEEK TIMELINE ═══════════════ -->
-  <div class="s-header">
-    <div class="s-title"><span>//</span> CHRONOLOGIE 12 SEMAINES</div>
-    <div class="s-num">S4 & S8 = DELOAD · S12 = TEST</div>
-  </div>
-
-  <div class="timeline-wrap">
-    <div class="timeline-scroll" id="weekTimeline"></div>
-  </div>
-
-  <!-- ═══════════════ WEEK INDICATOR ═══════════════ -->
-  <div class="week-indicator" id="weekIndicator">
-    <div>
-      <div id="wi-week" class="wi-week">S —</div>
-      <div id="wi-desc" class="wi-desc">Saisir la date de début</div>
+  <div class="advice-grid">
+    <div class="adv-card">
+      <div class="adv-title"><i class="fas fa-chart-line"></i>SURCHARGE PROGRESSIVE</div>
+      <p><strong>Loi suprême :</strong> ajoute 1 rep ou 1 série avant d'augmenter la charge. Cibles : +2.5kg/semaine sur les grands mouvements. La progression lente écrase la progression en fanfare.</p>
+      <div class="sci-src">Schoenfeld et al. 2019 · Progressive Overload Review</div>
     </div>
-    <div id="wi-badge" class="wi-badge normal"><i class="fas fa-bolt"></i>PPL NORMAL</div>
-  </div>
-
-  <!-- ═══════════════ SESSION TRACKER ═══════════════ -->
-  <div class="tracker-strip" id="sessionTracker">
-    <div class="tracker-strip-label">▸ SUIVI SÉANCES — SEMAINE EN COURS (cliquer pour cocher)</div>
-    <!-- Buttons injected by JS -->
-  </div>
-
-  <!-- ═══════════════ PROGRAMME ═══════════════ -->
-  <div class="s-header" style="margin-top:1rem">
-    <div class="s-title"><span>//</span> PROGRAMME DE COMBAT</div>
-    <div class="s-num">PPL + ATHLÉTISME · 7 JOURS</div>
-  </div>
-
-  <!-- NORMAL WEEK -->
-  <div id="week-normal">
-    <div class="prog-grid">
-
-      <!-- PUSH A -->
-      <div class="pcard" onclick="activate(event,'PUSH A — FORCE','Pec et épaules au feu. C\'est ici que la carrure se forge. Long levier = connexion mentale > ego.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// LUNDI</div>
-            <div class="pcard-name">PUSH A</div>
-            <div class="badge b-force"><i class="fas fa-bolt"></i>FORCE</div>
-            <div class="badge b-explosive"><i class="fas fa-fire"></i>EXPLOSIF</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--blood2)"><i class="fas fa-fire-flame-curved"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Développé couché haltères<span class="ex-expl">⚡ Poussée explosive montée</span></span><span class="ex-sets">4×6-8</span></li>
-            <li><span class="ex-n">2</span><span>Développé incliné machine / haltères</span><span class="ex-sets">3×8-10</span></li>
-            <li><span class="ex-n">3</span><span>Élévations latérales poulie / haltères</span><span class="ex-sets">4×12-15</span></li>
-            <li><span class="ex-n">4</span><span>Clapping push-ups (explosif)<span class="ex-expl">⚡ 3 séries de 6 reps max</span></span><span class="ex-sets">3×6</span></li>
-            <li><span class="ex-n">5</span><span>Triceps poulie corde</span><span class="ex-sets">3×12-15</span></li>
-            <li><span class="ex-n">6</span><span>Pushdown barre pronation</span><span class="ex-sets">3×10-12</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-person-walking"></i>2×20 MIN MARCHE INCLINÉE POST-SÉANCE</div>
-      </div>
-
-      <!-- PULL A -->
-      <div class="pcard" onclick="activate(event,'PULL A — FORCE','Dos large, bras épais. Tes lats = ta silhouette de prédateur.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// MARDI</div>
-            <div class="pcard-name">PULL A</div>
-            <div class="badge b-force"><i class="fas fa-bolt"></i>FORCE</div>
-            <div class="badge b-explosive"><i class="fas fa-fire"></i>EXPLOSIF</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--blood2)"><i class="fas fa-weight-hanging"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Tractions pronation lestées<span class="ex-expl">⚡ Phase montée explosive</span></span><span class="ex-sets">4×6-8</span></li>
-            <li><span class="ex-n">2</span><span>Rowing barre pronation</span><span class="ex-sets">4×8-10</span></li>
-            <li><span class="ex-n">3</span><span>Rowing haltère un bras</span><span class="ex-sets">3×10-12</span></li>
-            <li><span class="ex-n">4</span><span>Shrugs haltères (pause 1s haute)</span><span class="ex-sets">3×12-15</span></li>
-            <li><span class="ex-n">5</span><span>Curl barre EZ</span><span class="ex-sets">3×8-10</span></li>
-            <li><span class="ex-n">6</span><span>Curl pupitre un bras</span><span class="ex-sets">3×12</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-person-walking"></i>2×20 MIN MARCHE INCLINÉE POST-SÉANCE</div>
-      </div>
-
-      <!-- LEGS A -->
-      <div class="pcard" onclick="activate(event,'LEGS A — FORCE','La base de tout. Tes jambes longues = levier de titan.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// MERCREDI</div>
-            <div class="pcard-name">LEGS A</div>
-            <div class="badge b-force"><i class="fas fa-bolt"></i>FORCE</div>
-            <div class="badge b-explosive"><i class="fas fa-fire"></i>PLIOMÉTRIE</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--blood2)"><i class="fas fa-person-running"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Squat barre haute<span class="ex-super">AMPLITUDE CONTRÔLÉE · STOP AVANT DOULEUR</span></span><span class="ex-sets">4×6-8</span></li>
-            <li><span class="ex-n">2</span><span>Soulevé de terre roumain haltères</span><span class="ex-sets">4×8-10</span></li>
-            <li><span class="ex-n">3</span><span>Leg press (prise large)</span><span class="ex-sets">3×10-12</span></li>
-            <li><span class="ex-n">4</span><span>Box jumps / Sauts sur banc<span class="ex-expl">⚡ Atterrissage silencieux = max abs</span></span><span class="ex-sets">3×5</span></li>
-            <li><span class="ex-n">5</span><span>Curl allongé ischios</span><span class="ex-sets">3×12</span></li>
-            <li><span class="ex-n">6</span><span>Mollets debout (3 temps)</span><span class="ex-sets">4×15</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-person-walking"></i>2×20 MIN MARCHE INCLINÉE POST-SÉANCE</div>
-      </div>
-
-      <!-- JEUDI ATHLÉTISME -->
-      <div class="pcard pcard-athletic" onclick="activate(event,'ATHLÉTISME — VITESSE','Séance de warrior. Sprints, gammes, détente. Tu construis le moteur.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// JEUDI</div>
-            <div class="pcard-name">ATHLÉ</div>
-            <div class="badge b-athletic"><i class="fas fa-wind"></i>VITESSE</div>
-            <div class="badge b-explosive"><i class="fas fa-fire"></i>EXPLOSIF</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--lime)"><i class="fas fa-bolt-lightning"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Échauffement gammes ABC<span class="ex-expl">🌿 Montées genoux, talons fesses, skipping</span></span><span class="ex-sets">15 MIN</span></li>
-            <li><span class="ex-n">2</span><span>Sprints 20m départ arrêté<span class="ex-expl">⚡ 100% intensité · repos 90s entre</span></span><span class="ex-sets">6×20M</span></li>
-            <li><span class="ex-n">3</span><span>Sprints 40m progressifs<span class="ex-expl">⚡ 85-95% · Mécanique propre</span></span><span class="ex-sets">4×40M</span></li>
-            <li><span class="ex-n">4</span><span>Sauts en longueur debout<span class="ex-expl">⚡ Max distance · 3 min repos</span></span><span class="ex-sets">5 reps</span></li>
-            <li><span class="ex-n">5</span><span>Fentes sautées alternées</span><span class="ex-sets">3×8/j</span></li>
-            <li><span class="ex-n">6</span><span>Retour au calme : mobilité hanches + étirements</span><span class="ex-sets">10 MIN</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-leaf"></i>JOUR 48H APRÈS LEGS A · RÉCUPÉRATION JAMBES PRIORITAIRE</div>
-      </div>
-
-      <!-- PUSH B -->
-      <div class="pcard" onclick="activate(event,'PUSH B — HYPERTROPHIE','Pompe maximale. Sens chaque fibre. Vendredi de feu absolu.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// VENDREDI</div>
-            <div class="pcard-name">PUSH B</div>
-            <div class="badge b-hyper"><i class="fas fa-expand"></i>HYPERTROPHIE</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--violet2)"><i class="fas fa-explosion"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Développé militaire assis haltères</span><span class="ex-sets">4×8-10</span></li>
-            <li><span class="ex-n">2</span><span>Développé couché prise serrée (triceps)</span><span class="ex-sets">3×10-12</span></li>
-            <li><span class="ex-n">3</span><span>Superset : élév. frontales + latérales<span class="ex-super">⚡ SUPERSET · repos 90s après paire</span></span><span class="ex-sets">3×12</span></li>
-            <li><span class="ex-n">4</span><span>Push press (haltères ou barre)<span class="ex-expl">⚡ Impulsion jambes — explosif</span></span><span class="ex-sets">4×6</span></li>
-            <li><span class="ex-n">5</span><span>Dips lestés</span><span class="ex-sets">3×8-10</span></li>
-            <li><span class="ex-n">6</span><span>Extension au-dessus tête haltère</span><span class="ex-sets">3×15</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-person-walking"></i>2×20 MIN MARCHE INCLINÉE POST-SÉANCE</div>
-      </div>
-
-      <!-- PULL B -->
-      <div class="pcard" onclick="activate(event,'PULL B — HYPERTROPHIE','Épaisseur et détail. Tes lats explosent comme des ailes de démon.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// SAMEDI</div>
-            <div class="pcard-name">PULL B</div>
-            <div class="badge b-hyper"><i class="fas fa-expand"></i>HYPERTROPHIE</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--violet2)"><i class="fas fa-arrows-to-circle"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Rowing T-bar / machine (tirage explosif)<span class="ex-expl">⚡ Contraction rapide montée</span></span><span class="ex-sets">4×8-10</span></li>
-            <li><span class="ex-n">2</span><span>Tractions supination prise serrée</span><span class="ex-sets">3×8-10</span></li>
-            <li><span class="ex-n">3</span><span>Pulldown poulie haute large</span><span class="ex-sets">3×10-12</span></li>
-            <li><span class="ex-n">4</span><span>Face pull (santé épaules longues)</span><span class="ex-sets">4×15</span></li>
-            <li><span class="ex-n">5</span><span>Curl marteau corde poulie basse</span><span class="ex-sets">3×12</span></li>
-            <li><span class="ex-n">6</span><span>Curl incliné haltères (étirement maximal)</span><span class="ex-sets">3×12</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-person-walking"></i>2×20 MIN MARCHE INCLINÉE POST-SÉANCE</div>
-      </div>
-
-      <!-- LEGS B (optionnel) -->
-      <div class="pcard" onclick="activate(event,'LEGS B — VOLUME','Optionnel. Les guerriers ne sautent pas le dimanche.')">
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// DIMANCHE</div>
-            <div class="pcard-name">LEGS B <span class="opt-tag">OPT.</span></div>
-            <div class="badge b-volume"><i class="fas fa-wave-square"></i>VOLUME</div>
-            <div class="badge b-explosive"><i class="fas fa-fire"></i>SAUTS</div>
-          </div>
-          <div class="pcard-icon" style="color:#70b8ff"><i class="fas fa-dumbbell"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Hack squat ou goblet squat</span><span class="ex-sets">4×10-12</span></li>
-            <li><span class="ex-n">2</span><span>Soulevé de terre sumo léger</span><span class="ex-sets">3×8</span></li>
-            <li><span class="ex-n">3</span><span>Fentes haltères (courtes, contrôlées)</span><span class="ex-sets">3×10/j</span></li>
-            <li><span class="ex-n">4</span><span>Squat jump bodyweight<span class="ex-expl">⚡ Détente verticale · max hauteur</span></span><span class="ex-sets">3×8</span></li>
-            <li><span class="ex-n">5</span><span>Curl assis ischios</span><span class="ex-sets">4×12</span></li>
-            <li><span class="ex-n">6</span><span>Mollets assis (tempo 3-1-1)</span><span class="ex-sets">4×20</span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-person-walking"></i>2×20 MIN MARCHE INCLINÉE POST-SÉANCE</div>
-      </div>
-
+    <div class="adv-card">
+      <div class="adv-title"><i class="fas fa-stopwatch"></i>TEMPS DE REPOS</div>
+      <p>Force (4×6-8) : <strong>2-3 min repos</strong>. Hypertrophie (3×10-15) : <strong>60-90s</strong>. Explosif/pliométrie : <strong>3 min minimum</strong> pour la qualité neuromusculaire.</p>
+      <div class="sci-src">NSCA Position Statement 2024</div>
     </div>
-  </div><!-- /week-normal -->
-
-  <!-- DELOAD WEEK -->
-  <div id="week-deload" style="display:none">
-    <div style="background:rgba(255,152,0,.07); border:1px solid rgba(255,152,0,.25); padding:1.2rem 1.5rem; margin-bottom:1.5rem; font-family:var(--font-m); font-size:.7rem; color:var(--deload2); letter-spacing:.18em; line-height:1.8;">
-      ⚠ DELOAD ACTIVE — 50-60% CHARGES HABITUELLES · 2 SÉRIES PAR EXERCICE · PAS D'EXPLOSIF · PAS D'ÉCHEC MUSCULAIRE<br>
-      Science : réduction volume+intensité toutes 4-5 semaines optimale (NSCA 2024 · Nature 2026)
+    <div class="adv-card">
+      <div class="adv-title"><i class="fas fa-triangle-exclamation"></i>LEVIERS LONGS</div>
+      <p>Avec des tibias longs, le squat force l'inclinaison. <strong>Squat haute barre ou goblet</strong> prioritaire. Longs bras = avantage deadlift naturel. Haltères > barre au bench.</p>
+      <div class="sci-src">Bony to Beastly · T-Nation Ectomorph Guide</div>
     </div>
-    <div class="prog-grid">
-
-      <!-- PUSH A DELOAD -->
-      <div class="pcard pcard-deload" onclick="activate(event,'PUSH A — DELOAD','Charge légère. Sens le mouvement. Ton corps se répare.', true)">
-        <div class="deload-overlay">DELOAD</div>
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// LUNDI · DELOAD</div>
-            <div class="pcard-name">PUSH A</div>
-            <div class="badge b-deload"><i class="fas fa-moon"></i>DELOAD</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--deload-c)"><i class="fas fa-battery-half"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Développé couché haltères (léger)</span><span class="ex-sets deload-sets">2×6</span></li>
-            <li><span class="ex-n">2</span><span>Développé incliné machine</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">3</span><span>Élévations latérales haltères légères</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">4</span><span>Triceps poulie corde (léger)</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">—</span><span style="color:var(--deload-c);font-size:.7rem">❌ AUCUN exercice explosif cette semaine</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-heart-pulse"></i>MARCHE LÉGÈRE 15 MIN · MOBILITÉ ÉPAULES</div>
-      </div>
-
-      <!-- PULL A DELOAD -->
-      <div class="pcard pcard-deload" onclick="activate(event,'PULL A — DELOAD','Récupération dos. Connexion musculaire pure.', true)">
-        <div class="deload-overlay">DELOAD</div>
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// MARDI · DELOAD</div>
-            <div class="pcard-name">PULL A</div>
-            <div class="badge b-deload"><i class="fas fa-moon"></i>DELOAD</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--deload-c)"><i class="fas fa-battery-half"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Tractions pronation (sans lest)</span><span class="ex-sets deload-sets">2×6</span></li>
-            <li><span class="ex-n">2</span><span>Rowing barre léger</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">3</span><span>Shrugs haltères légers</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">4</span><span>Curl barre EZ léger</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">—</span><span style="color:var(--deload-c);font-size:.7rem">❌ Pas de rowing explosif · tempo lent</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-heart-pulse"></i>MARCHE 15 MIN · MOBILITÉ DOS THORACIQUE</div>
-      </div>
-
-      <!-- LEGS A DELOAD -->
-      <div class="pcard pcard-deload" onclick="activate(event,'LEGS A — DELOAD','Jambes légères. Articulations qui respirent.', true)">
-        <div class="deload-overlay">DELOAD</div>
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// MERCREDI · DELOAD</div>
-            <div class="pcard-name">LEGS A</div>
-            <div class="badge b-deload"><i class="fas fa-moon"></i>DELOAD</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--deload-c)"><i class="fas fa-battery-half"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Goblet squat léger (technique)</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">2</span><span>Soulevé de terre roumain haltères léger</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">3</span><span>Extension assise légère</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">4</span><span>Mollets debout léger</span><span class="ex-sets deload-sets">2×12</span></li>
-            <li><span class="ex-n">—</span><span style="color:var(--deload-c);font-size:.7rem">❌ AUCUN saut · AUCUNE pliométrie</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-heart-pulse"></i>MOBILITÉ HANCHES · ÉTIREMENTS 15 MIN</div>
-      </div>
-
-      <!-- JEUDI DELOAD = MOBILITÉ -->
-      <div class="pcard pcard-deload" onclick="activate(event,'JEUDI DELOAD — MOBILITÉ','Pas de sprints. Ton corps reconstruit ses fondations aujourd\'hui.', true)">
-        <div class="deload-overlay">DELOAD</div>
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// JEUDI · DELOAD</div>
-            <div class="pcard-name">MOBILITÉ</div>
-            <div class="badge b-deload"><i class="fas fa-moon"></i>RÉCUP</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--deload-c)"><i class="fas fa-spa"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Marche légère en plein air</span><span class="ex-sets deload-sets">30 MIN</span></li>
-            <li><span class="ex-n">2</span><span>Rotations épaules + hanches + chevilles</span><span class="ex-sets deload-sets">10 MIN</span></li>
-            <li><span class="ex-n">3</span><span>Gainage statique (planche, side)</span><span class="ex-sets deload-sets">3×30s</span></li>
-            <li><span class="ex-n">4</span><span>Étirements dynamiques corps entier</span><span class="ex-sets deload-sets">15 MIN</span></li>
-            <li><span class="ex-n">—</span><span style="color:var(--deload-c);font-size:.7rem">❌ AUCUN sprint · AUCUN saut · AUCUNE vitesse</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-bed"></i>SOMMEIL 9H+ CETTE NUIT · RÉCUPÉRATION NERVEUSE</div>
-      </div>
-
-      <!-- PUSH B DELOAD -->
-      <div class="pcard pcard-deload" onclick="activate(event,'PUSH B — DELOAD','Technique pure. Connexion neuromusculaire. Pas d\'ego.', true)">
-        <div class="deload-overlay">DELOAD</div>
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// VENDREDI · DELOAD</div>
-            <div class="pcard-name">PUSH B</div>
-            <div class="badge b-deload"><i class="fas fa-moon"></i>DELOAD</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--deload-c)"><i class="fas fa-battery-half"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Développé militaire léger</span><span class="ex-sets deload-sets">2×6</span></li>
-            <li><span class="ex-n">2</span><span>Élévations latérales + frontales légères</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">3</span><span>Dips poids de corps (sans lest)</span><span class="ex-sets deload-sets">2×6</span></li>
-            <li><span class="ex-n">4</span><span>Extension triceps léger</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">—</span><span style="color:var(--deload-c);font-size:.7rem">❌ Pas de push press · Pas d'explosif</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-heart-pulse"></i>MARCHE 15 MIN · ÉTIREMENTS PECS</div>
-      </div>
-
-      <!-- PULL B DELOAD -->
-      <div class="pcard pcard-deload" onclick="activate(event,'PULL B — DELOAD','Tirage doux. Tes tendons te remercient.', true)">
-        <div class="deload-overlay">DELOAD</div>
-        <div class="pcard-scan"></div>
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// SAMEDI · DELOAD</div>
-            <div class="pcard-name">PULL B</div>
-            <div class="badge b-deload"><i class="fas fa-moon"></i>DELOAD</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--deload-c)"><i class="fas fa-battery-half"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n">1</span><span>Pulldown poulie large (léger)</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">2</span><span>Rowing machine / câble léger</span><span class="ex-sets deload-sets">2×8</span></li>
-            <li><span class="ex-n">3</span><span>Face pull (santé coiffe rotateurs)</span><span class="ex-sets deload-sets">3×15</span></li>
-            <li><span class="ex-n">4</span><span>Curl marteau léger</span><span class="ex-sets deload-sets">2×10</span></li>
-            <li><span class="ex-n">—</span><span style="color:var(--deload-c);font-size:.7rem">Tempo lent · connexion musculaire totale</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-heart-pulse"></i>MARCHE 15 MIN · MOBILITÉ DOS</div>
-      </div>
-
-      <!-- DIMANCHE DELOAD = REPOS -->
-      <div class="pcard pcard-rest">
-        <div class="pcard-head">
-          <div>
-            <div class="pcard-day">// DIMANCHE · DELOAD</div>
-            <div class="pcard-name" style="color:var(--fog)">REPOS TOTAL</div>
-            <div class="badge b-rest"><i class="fas fa-bed"></i>RÉCUPÉRATION</div>
-          </div>
-          <div class="pcard-icon" style="color:var(--fog)"><i class="fas fa-bed"></i></div>
-        </div>
-        <div class="pcard-body">
-          <ul class="ex-list">
-            <li><span class="ex-n" style="color:var(--fog)">—</span><span>Sommeil 9h+ · Croissance maximale pendant deload</span><span></span></li>
-            <li><span class="ex-n" style="color:var(--fog)">—</span><span>Protéines maintenues : 160g · Eau 3L+</span><span></span></li>
-            <li><span class="ex-n" style="color:var(--fog)">—</span><span>Aucun sport intense · Marche légère acceptée</span><span></span></li>
-          </ul>
-        </div>
-        <div class="pcard-foot"><i class="fas fa-heart-pulse"></i>LA RÉCUPÉRATION EST UN ENTRAÎNEMENT</div>
-      </div>
-
+    <div class="adv-card">
+      <div class="adv-title"><i class="fas fa-fire"></i>PHASES EXPLOSIVES</div>
+      <p>Concentrique explosive + excentrique contrôlée = <strong>gains neuromusculaires maximaux</strong>. Pour les sprints et sauts : qualité > quantité. Stop si fatigue technique.</p>
+      <div class="sci-src">Radnor et al. 2018 · PMC 2024</div>
     </div>
-  </div><!-- /week-deload -->
-
-  <!-- ═══════════════ SENSEI ═══════════════ -->
-  <div class="s-header">
-    <div class="s-title"><span>//</span> CONSEILS DU SENSEI</div>
-    <div class="s-num">MORPHO 1M86 · SCIENCE-BASED</div>
-  </div>
-
-  <div class="sensei-wrap">
-    <div class="sensei-top">
-      <div class="sensei-orb">⛩</div>
-      <div>
-        <div class="sensei-meta-title">MAÎTRE MORPHO — PROTOCOLE 1M86</div>
-        <div class="sensei-meta-sub">OPTIMISÉ POUR LEVIERS LONGS + ATHLÉTISME · WAJDI 2025 · CONFIDENTIEL</div>
-      </div>
+    <div class="adv-card">
+      <div class="adv-title"><i class="fas fa-clock"></i>INTERFÉRENCE MINIMISÉE</div>
+      <p><strong>48h minimum entre Legs A et athlétisme.</strong> Sprints toujours le jeudi. Séparation des stimuli force/cardio = hypertrophie préservée et performance explosive maximale.</p>
+      <div class="sci-src">Wilson et al. Frontiers 2025 · Schumann Meta-analysis</div>
     </div>
-    <div class="advice-tabs">
-      <div class="adv-tab active" onclick="showAdvice('training',this)">ENTRAÎNEMENT</div>
-      <div class="adv-tab" onclick="showAdvice('morpho',this)">MORPHOLOGIE</div>
-      <div class="adv-tab" onclick="showAdvice('athletic',this)">ATHLÉTISME</div>
-      <div class="adv-tab deload-tab" onclick="showAdvice('deload-adv',this)">⚠ DELOAD</div>
-    </div>
-
-    <!-- Panel Entraînement -->
-    <div class="advice-panel active" id="panel-training">
-      <div class="advice-grid">
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-chart-line"></i>SURCHARGE PROGRESSIVE</div>
-          <p><strong>Loi suprême :</strong> ajoute 1 rep ou 1 série avant d'augmenter la charge. La progression lente et régulière écrase la progression en fanfare. Cibles : +2.5kg/semaine sur les grands mouvements.
-          </p>
-          <div class="science-src">Schoenfeld et al. 2019 · Progressive Overload Review</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-rotate"></i>ÉCHAUFFEMENT — OBLIGATOIRE</div>
-          <p><strong>10 min minimum</strong> avant chaque séance. Rotations épaules, hanches, genoux, chevilles. Ton corps chaud est ton équipement de protection le plus important avec des leviers longs.</p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-stopwatch"></i>TEMPS DE REPOS</div>
-          <p>Force (4×6-8) : <strong>2-3 min repos</strong>. Hypertrophie (3×10-15) : <strong>60-90s</strong>. Explosif/pliométrie : <strong>3 min minimum</strong> pour la qualité neuromusculaire.</p>
-          <div class="science-src">NSCA Position Statement 2024</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-triangle-exclamation"></i>INTERFÉRENCE TRAINING</div>
-          <p>Sprints le jeudi (séparé des jambes du mercredi) limite l'effet d'interférence. <strong>48h minimum entre Legs A et athlétisme</strong> est non-négociable pour la performance explosive.</p>
-          <div class="science-src">Wilson et al. Meta-analysis · Frontiers 2025</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-fire"></i>PHASES EXPLOSIVES</div>
-          <p>La phase concentrique explosive + phase excentrique contrôlée = <strong>gains neuromusculaires maximaux</strong>. Pour les sprints et sauts : qualité > quantité. Stop si fatigue technique.</p>
-          <div class="science-src">Radnor et al. 2018 · PMC 2024</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-bed"></i>SOMMEIL = CROISSANCE</div>
-          <p><strong>8h minimum.</strong> La synthèse protéique peak à la nuit 2-3. Les nuits courtes réduisent la testostérone de 15% et la GH de 70%. Ton programme est nul sans sommeil.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel Morphologie -->
-    <div class="advice-panel" id="panel-morpho">
-      <div class="advice-grid">
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-triangle-exclamation"></i>SQUATS — LEVIERS LONGS</div>
-          <p>Avec des tibias longs, le squat force une inclinaison du torse. <strong>Squat haute barre ou goblet squat</strong> prioritaire. Arrête avant la douleur : la tension > la profondeur.
-          </p>
-          <div class="science-src">Bony to Beastly · T-Nation Ectomorph Guide</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-expand-arrows-alt"></i>V-SHAPE — PRIORITÉ</div>
-          <p><strong>Arme principale :</strong> tractions, rowing lourd, élévations latérales. Tes épaules larges potentielles + dos large = silhouette de sprinteur. C'est ici que la magie opère.
-          </p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-link"></i>CHAÎNE POSTÉRIEURE</div>
-          <p>Les <strong>ischio-jambiers sont ta clé</strong>. Soulevé de terre roumain = masse + protection lombaire. 1m86 long = dos fragile si ischios négligés. Priorité absolue Bloc I.
-          </p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-scale-balanced"></i>BENCH — LONGS BRAS</div>
-          <p>Tes bras longs augmentent la ROM et le stress articulaire. Compte sur le <strong>volume et la connexion mentale</strong>, pas les kilos. Haltères > barre pour ton gabarit long.
-          </p>
-          <div class="science-src">T-Nation Ectomorph · Powerlifting.life</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-arrows-to-circle"></i>DEADLIFT — TON AVANTAGE</div>
-          <p>Longs bras = <strong>avantage mécanique au deadlift</strong>. Le soulevé de terre roumain est ton exercice de prédilection pour masse et force. Exploite cet atout naturel.
-          </p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title"><i class="fas fa-bolt"></i>SPRINTER BODY</div>
-          <p>Morphologie 1m86 long avec muscles fins = <strong>corps de sprinter naturel</strong>. Tes jambes longues te donnent une foulée puissante. La combinaison PPL + athlétisme est parfaite pour toi.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel Athlétisme -->
-    <div class="advice-panel" id="panel-athletic">
-      <div class="advice-grid">
-        <div class="advice-card">
-          <div class="advice-card-title" style="color:var(--lime2)"><i class="fas fa-wind"></i>GAMMES ABC</div>
-          <p>Les gammes d'athlétisme (montées genoux, talons fesses, skipping) <strong>activent le système nerveux</strong> avant les sprints et améliorent la mécanique de course. 15 min d'échauffement non-négociable.</p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title" style="color:var(--lime2)"><i class="fas fa-person-running"></i>SPRINTS — QUALITÉ</div>
-          <p>Maximum <strong>6-8 sprints max en intensité absolue</strong> par séance. La fatigue dégrade la mécanique et crée des blessures. Un sprint de qualité > trois sprints fatigués.</p>
-          <div class="science-src">PMC 2024 · RSA Meta-analysis</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title" style="color:var(--lime2)"><i class="fas fa-arrows-up-down"></i>DÉTENTE VERTICALE</div>
-          <p>Les box jumps et squat jumps améliorent le <strong>recrutement des unités motrices rapides</strong> (type II). Atterrissage silencieux = activation maximum des réflexes neuromusculaires.
-          </p>
-          <div class="science-src">Pedersen et al. EJSS 2024</div>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title" style="color:var(--lime2)"><i class="fas fa-clock"></i>TIMING ATHLÉ</div>
-          <p>Toujours le jeudi, <strong>48h après Legs A</strong>. Les jambes doivent être récupérées pour exprimer leur puissance explosive maximale. Si fatigue intense, réduire volume.</p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title" style="color:var(--lime2)"><i class="fas fa-shoe-prints"></i>MÉCANIQUE COURSE</div>
-          <p>1m86 = grande foulée naturelle. Travaille la <strong>fréquence des appuis</strong> plutôt que la longueur. Bras en L à 90°, gainage abdos actif, regard à l'horizon. Forme avant vitesse.</p>
-        </div>
-        <div class="advice-card">
-          <div class="advice-card-title" style="color:var(--lime2)"><i class="fas fa-triangle-exclamation"></i>INTERFÉRENCE MINIMISÉE</div>
-          <p>Sprints et PPL le même jour = potentiel conflit mTOR/AMPK. Le placement jeudi <strong>sépare les stimuli</strong> de 48h minimum, limitant l'effet d'interférence sur la croissance musculaire.
-          </p>
-          <div class="science-src">Schumann et al. Meta-analysis 43 études</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel Deload -->
-    <div class="advice-panel" id="panel-deload-adv">
-      <div class="advice-grid">
-        <div class="advice-card deload-card">
-          <div class="advice-card-title"><i class="fas fa-moon"></i>POURQUOI DELOAD</div>
-          <p>Après 3-4 semaines de surcharge progressive, la fatigue systémique <strong>masque les adaptations réelles</strong>. Le deload permet la supercompensation : tu sors plus fort qu'avant.</p>
-          <div class="science-src">Sports Med Open 2024 · Deloading Survey n=246</div>
-        </div>
-        <div class="advice-card deload-card">
-          <div class="advice-card-title"><i class="fas fa-battery-full"></i>CHARGES 50-60%</div>
-          <p>Utilise <strong>50 à 60% de ton max habituel</strong>. Pas moins (tu perdrais la connexion neuromusculaire), pas plus (le but est la récupération). Sens le mouvement, pas la charge.</p>
-          <div class="science-src">Nature Sci Reports 2026 · Deload Study</div>
-        </div>
-        <div class="advice-card deload-card">
-          <div class="advice-card-title"><i class="fas fa-ban"></i>AUCUN EXPLOSIF</div>
-          <p><strong>Supprime tous les exercices explosifs.</strong> Pas de sprints, pas de sauts, pas de clapping, pas de push press. Le système nerveux central se reconstruit pendant le deload.</p>
-        </div>
-        <div class="advice-card deload-card">
-          <div class="advice-card-title"><i class="fas fa-bed"></i>SOMMEIL 9H+</div>
-          <p>Pendant le deload, augmente ton sommeil à <strong>9h minimum</strong>. GH et testostérone peak pendant la récupération longue. C'est littéralement là que ta masse se forme.</p>
-        </div>
-        <div class="advice-card deload-card">
-          <div class="advice-card-title"><i class="fas fa-drumstick-bite"></i>NUTRITION DELOAD</div>
-          <p>Maintiens les <strong>160g protéines</strong> impérativement. Tu peux légèrement réduire les glucides (-100-150 kcal) si tu le souhaites, mais reste proche de la maintenance. Les protéines reconstruisent.</p>
-        </div>
-        <div class="advice-card deload-card">
-          <div class="advice-card-title"><i class="fas fa-spa"></i>RÉCUP ACTIVE</div>
-          <p>Marche légère, massage, rouleau de mousse (foam rolling), étirements statiques. <strong>47% des athlètes</strong> utilisent massage + stretching comme récupération deload selon NSCA 2024.</p>
-          <div class="science-src">Rogerson et al. Sports Med Open 2024</div>
-        </div>
-      </div>
-    </div>
-  </div><!-- /sensei -->
-
-  <!-- ═══════════════ MACROS ═══════════════ -->
-  <div class="s-header">
-    <div class="s-title"><span>//</span> MACROS & RÉCUPÉRATION</div>
-    <div class="s-num">MAINTENANCE · PROTOCOLE PROPRE</div>
-  </div>
-
-  <div class="macros-wrap">
-    <div class="macro-grid">
-      <div class="macro-cell"><div class="macro-val">2450</div><div class="macro-unit">KCAL / JOUR</div></div>
-      <div class="macro-cell"><div class="macro-val">160g</div><div class="macro-unit">PROTÉINES</div></div>
-      <div class="macro-cell"><div class="macro-val">3L+</div><div class="macro-unit">EAU / JOUR</div></div>
-      <div class="macro-cell"><div class="macro-val">8h+</div><div class="macro-unit">SOMMEIL</div></div>
-      <div class="macro-cell"><div class="macro-val">18%</div><div class="macro-unit">BF INITIAL</div></div>
-      <div class="macro-cell"><div class="macro-val">71kg</div><div class="macro-unit">POIDS DÉPART</div></div>
-    </div>
-    <div class="recovery-row">
-      <div class="rec-chip"><i class="fas fa-bed"></i>8H SOMMEIL MINIMUM · 9H+ EN DELOAD</div>
-      <div class="rec-chip"><i class="fas fa-droplet"></i>3L EAU PAR JOUR</div>
-      <div class="rec-chip"><i class="fas fa-drumstick-bite"></i>160G PROTÉINES CHAQUE JOUR</div>
-      <div class="rec-chip"><i class="fas fa-person-walking"></i>MARCHE INCLINÉE POST-SÉANCE</div>
-      <div class="rec-chip"><i class="fas fa-wind"></i>SPRINTS JEUDI UNIQUEMENT</div>
-      <div class="rec-chip"><i class="fas fa-heart-pulse"></i>CARDIO MODÉRÉ HORS SÉANCES</div>
-      <div class="rec-chip"><i class="fas fa-moon"></i>DELOAD S4, S8 · TEST S12</div>
+    <div class="adv-card">
+      <div class="adv-title"><i class="fas fa-bed"></i>SOMMEIL = CROISSANCE</div>
+      <p><strong>8h minimum.</strong> Synthèse protéique peak la nuit 2-3. Les nuits courtes réduisent la testostérone de 15% et la GH de 70%. Ton programme est nul sans sommeil.</p>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════ SCIENCE ═══════════════ -->
-  <div class="s-header">
-    <div class="s-title"><span>//</span> BASES SCIENTIFIQUES</div>
-    <div class="s-num">PEER-REVIEWED · 2024-2026</div>
-  </div>
+<!-- ══════════ MACROS ══════════ -->
+<div class="s-header">
+  <div class="s-title"><span>//</span> MACROS &amp; RÉCUPÉRATION</div>
+  <div class="s-num">MAINTENANCE · PROTOCOLE PROPRE</div>
+</div>
 
-  <div class="science-wrap">
-    <div class="science-grid">
-      <div class="sci-card">
-        <div class="sci-card-title"><i class="fas fa-flask"></i>FRÉQUENCE PPL</div>
-        <p>Les muscles entraînés <strong>2x/semaine</strong> montrent des gains hypertrophiques supérieurs vs 1x. Le split PPL 6 jours atteint cette fréquence optimale avec 48-72h de repos entre groupes.</p>
-        <div class="sci-src">Pedersen et al. EJSS 2024 · Hamarsland et al. 2022</div>
-      </div>
-      <div class="sci-card">
-        <div class="sci-card-title"><i class="fas fa-flask"></i>DELOAD OPTIMAL</div>
-        <p>Les athlètes de force performent leur deload <strong>toutes les 5.6 ± 2.3 semaines</strong> en moyenne. Duration typique : 6.4 jours. Réduction volume ET intensité = résultats optimaux.</p>
-        <div class="sci-src">Rogerson et al. Sports Med Open 2024 n=246 athletes</div>
-      </div>
-      <div class="sci-card">
-        <div class="sci-card-title"><i class="fas fa-flask"></i>INTERFÉRENCE LIMITÉE</div>
-        <p>La combinaison force + cardio ne compromet <strong>pas significativement</strong> l'hypertrophie (SMD = -0.01, p=0.92) si les modalités sont séparées. L'effet sur la force explosive reste modéré.</p>
-        <div class="sci-src">Schumann et al. Meta-analysis 43 études · StrongerByScience 2024</div>
-      </div>
-      <div class="sci-card">
-        <div class="sci-card-title"><i class="fas fa-flask"></i>EXPLOSIVITÉ + MASSE</div>
-        <p>La combinaison <strong>force + pliométrie + sprints</strong> améliore l'hypertrophie ET la RSA (capacité à répéter les sprints) chez les athlètes. Séparation 48h = résultats maximaux.</p>
-        <div class="sci-src">PMC Combined Sprint/Strength 2024 · Radnor et al. 2018</div>
-      </div>
-      <div class="sci-card">
-        <div class="sci-card-title"><i class="fas fa-flask"></i>MORPHO LONGUE</div>
-        <p>Les leviers longs <strong>augmentent le ROM et la tension musculaire</strong> sur les exercices au câble et haltères. Avantage naturel au deadlift sumo et aux tractions. Désavantage bench classique.</p>
-        <div class="sci-src">Bony to Beastly · Powerlifting.life · STACK.com</div>
-      </div>
-      <div class="sci-card">
-        <div class="sci-card-title"><i class="fas fa-flask"></i>DELOAD & HYPERTROPHIE</div>
-        <p>Un deload à mi-parcours <strong>ne réduit pas l'hypertrophie</strong> ni la puissance (p>0.05). Il peut légèrement réduire la force maximale à court terme — compensé par la supercompensation post-deload.</p>
-        <div class="sci-src">Nature Scientific Reports 2026 · PeerJ 2024 Deload Study</div>
-      </div>
-    </div>
+<div class="macros-wrap">
+  <div class="macro-grid">
+    <div class="mc"><div class="mc-val">2450</div><div class="mc-unit">KCAL / JOUR</div></div>
+    <div class="mc"><div class="mc-val">160g</div><div class="mc-unit">PROTÉINES</div></div>
+    <div class="mc"><div class="mc-val">3L+</div><div class="mc-unit">EAU / JOUR</div></div>
+    <div class="mc"><div class="mc-val">8h+</div><div class="mc-unit">SOMMEIL</div></div>
+    <div class="mc"><div class="mc-val">18%</div><div class="mc-unit">BF INITIAL</div></div>
+    <div class="mc"><div class="mc-val">71kg</div><div class="mc-unit">POIDS DÉPART</div></div>
   </div>
+  <div class="rec-row">
+    <div class="rec-chip"><i class="fas fa-bed"></i>8H SOMMEIL MIN · 9H+ EN DELOAD</div>
+    <div class="rec-chip"><i class="fas fa-droplet"></i>3L EAU PAR JOUR</div>
+    <div class="rec-chip"><i class="fas fa-drumstick-bite"></i>160G PROTÉINES CHAQUE JOUR</div>
+    <div class="rec-chip"><i class="fas fa-person-walking"></i>MARCHE INCLINÉE POST-SÉANCE</div>
+    <div class="rec-chip"><i class="fas fa-wind"></i>SPRINTS JEUDI UNIQUEMENT</div>
+    <div class="rec-chip"><i class="fas fa-moon"></i>DELOAD S4, S8 · TEST S12</div>
+  </div>
+</div>
 
-  <!-- ═══════════════ TEASER BLOC 2 ═══════════════ -->
-  <div class="s-header">
-    <div class="s-title"><span>//</span> PHASE SUIVANTE</div>
-    <div class="s-num">ACCÈS RESTREINT</div>
-  </div>
+<!-- ══════════ SCIENCE ══════════ -->
+<div class="s-header">
+  <div class="s-title"><span>//</span> BASES SCIENTIFIQUES</div>
+  <div class="s-num">PEER-REVIEWED · 2024-2026</div>
+</div>
 
-  <div class="teaser-wrap">
-    <div class="teaser-classified">CLASSIFIÉ</div>
-    <div class="teaser-eyebrow">▸ DÉBLOQUÉ À J+84 · ACCESSIBLE DANS <span id="daysLeft2">84</span> JOURS</div>
-    <div class="teaser-title">BLOC II — FORCE & DÉFINITION</div>
-    <div class="teaser-sub">5/3/1 Wendler · HIIT Cardio · Sprint Spécialisation · Réduction BF contrôlée · Sculpture finale</div>
-    <div class="lock-pill"><i class="fas fa-lock"></i>PROTOCOLE VERROUILLÉ · COMPLÈTE LE BLOC I D'ABORD</div>
+<div class="sci-wrap">
+  <div class="sci-grid">
+    <div class="sci-card"><div class="sci-card-title"><i class="fas fa-flask"></i>FRÉQUENCE PPL</div><p>Les muscles entraînés <strong>2x/semaine</strong> montrent des gains hypertrophiques supérieurs vs 1x. Le split PPL 6 jours atteint cette fréquence optimale avec 48-72h de repos entre groupes.</p><div class="sci-small">Pedersen et al. EJSS 2024 · Hamarsland et al. 2022</div></div>
+    <div class="sci-card"><div class="sci-card-title"><i class="fas fa-flask"></i>DELOAD OPTIMAL</div><p>Les athlètes de force font leur deload <strong>toutes les 5.6 ± 2.3 semaines</strong> en moyenne. Réduction volume ET intensité = résultats optimaux. Supercompensation garantie post-deload.</p><div class="sci-small">Rogerson et al. Sports Med Open 2024 n=246</div></div>
+    <div class="sci-card"><div class="sci-card-title"><i class="fas fa-flask"></i>INTERFÉRENCE LIMITÉE</div><p>Force + cardio ne compromet <strong>pas l'hypertrophie</strong> (SMD = -0.01, p=0.92) si séparés. L'effet sur la force explosive reste modéré avec un bon planning hebdomadaire.</p><div class="sci-small">Schumann et al. Meta-analysis 43 études</div></div>
+    <div class="sci-card"><div class="sci-card-title"><i class="fas fa-flask"></i>EXPLOSIVITÉ + MASSE</div><p><strong>Force + pliométrie + sprints</strong> améliore l'hypertrophie ET la RSA. Séparation 48h entre stimuli = résultats maximaux pour la croissance et la performance explosive.</p><div class="sci-small">PMC Combined Sprint/Strength 2024 · Radnor et al.</div></div>
+    <div class="sci-card"><div class="sci-card-title"><i class="fas fa-flask"></i>MORPHO LONGUE</div><p>Les leviers longs <strong>augmentent le ROM et la tension musculaire</strong> sur câbles et haltères. Avantage naturel au deadlift sumo et aux tractions. Exploiter cet atout.</p><div class="sci-small">Bony to Beastly · Powerlifting.life · STACK.com</div></div>
+    <div class="sci-card"><div class="sci-card-title"><i class="fas fa-flask"></i>DELOAD &amp; HYPERTROPHIE</div><p>Un deload à mi-parcours <strong>ne réduit pas l'hypertrophie</strong> ni la puissance (p>0.05). Légère réduction de la force max compensée par la supercompensation post-deload.</p><div class="sci-small">Nature Scientific Reports 2026 · PeerJ 2024</div></div>
   </div>
+</div>
 
-  <!-- FOOTER -->
-  <div class="site-foot">
-    <div class="site-foot-text">
-      ⚔ SHINWA PROJECT V2 · WAJDI 2025 · <span>SCIENCE + IRON + WILL</span> · BLOC I ACTIF ⚔
-    </div>
-  </div>
+<!-- ══════════ TEASER BLOC 2 ══════════ -->
+<div class="s-header">
+  <div class="s-title"><span>//</span> PHASE SUIVANTE</div>
+  <div class="s-num">ACCÈS RESTREINT · J+84</div>
+</div>
+
+<div class="teaser-wrap">
+  <div class="teaser-classified">CLASSIFIÉ</div>
+  <div class="t-eyebrow">▸ DÉBLOQUÉ À J+84 · APRÈS COMPLETION DU BLOC I</div>
+  <div class="t-title">BLOC II — FORCE &amp; DÉFINITION</div>
+  <div class="t-sub">5/3/1 Wendler · HIIT Cardio · Sprint Spécialisation · Réduction BF contrôlée · Sculpture finale</div>
+  <div class="lock-pill"><i class="fas fa-lock"></i>PROTOCOLE VERROUILLÉ · COMPLÈTE LE BLOC I D'ABORD</div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<div class="site-foot">
+  <div class="site-foot-txt">⚔ SHINWA PROJECT V2 · WAJDI 2025 · <span>SCIENCE + IRON + WILL</span> · BLOC I ACTIF ⚔</div>
+</div>
 
 </div><!-- /wrap -->
 
-<!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
-/* ─── CONSTANTS ─── */
-const TOTAL_DAYS = 84;
-const DELOAD_WEEKS = [4, 8];  // semaines de deload
-const TEST_WEEK = 12;
+/* ══════════ DATA ══════════ */
+const WEEK_TYPES = {
+  1:'normal',2:'normal',3:'normal',4:'deload',
+  5:'normal',6:'normal',7:'normal',8:'deload',
+  9:'normal',10:'normal',11:'normal',12:'test'
+};
 
-/* ─── STATE ─── */
-let startDate = null;
-let currentWeek = 0;
-let isDeload = false;
-let isTest = false;
-
-/* ─── QUOTES ─── */
-const QUOTES_NORMAL = [
-  '"Le corps atteint ce que l\'esprit croit." — Sensei Shinwa',
-  '"La douleur est temporaire. La masse est éternelle."',
-  '"Surcharge progressive → résultats progressifs." — Science',
-  '"Tes leviers longs sont ton avantage au deadlift. Exploite-les."',
-  '"PPL 2x/semaine = fréquence optimale prouvée." — Pedersen 2024',
-  '"48h entre sprints et jambes. La science ordonne."',
-  '"84 jours. Une seule direction : en haut. ⚡"',
+const NORMAL_DAYS = [
+  {
+    day:'LUNDI',name:'PUSH A',sub:'FORCE + EXPLOSIF',
+    icon:'fa-fire-flame-curved',iconColor:'var(--blood2)',
+    badges:[['bforce','fa-bolt','FORCE'],['baxp','fa-fire','EXPLOSIF']],
+    type:'normal',
+    exos:[
+      {n:'1',name:'Développé couché haltères',tag:'⚡ Poussée explosive montée',tagType:'ex-expl',sets:'4×6-8'},
+      {n:'2',name:'Développé incliné machine / haltères',sets:'3×8-10'},
+      {n:'3',name:'Élévations latérales poulie / haltères',sets:'4×12-15'},
+      {n:'4',name:'Clapping push-ups',tag:'⚡ 3 séries de 6 reps max — explosif',tagType:'ex-expl',sets:'3×6'},
+      {n:'5',name:'Triceps poulie corde',sets:'3×12-15'},
+      {n:'6',name:'Pushdown barre pronation',sets:'3×10-12'},
+    ],
+    foot:'fa-person-walking|2×20 MIN MARCHE INCLINÉE POST-SÉANCE'
+  },
+  {
+    day:'MARDI',name:'PULL A',sub:'FORCE + EXPLOSIF',
+    icon:'fa-weight-hanging',iconColor:'var(--blood2)',
+    badges:[['bforce','fa-bolt','FORCE'],['baxp','fa-fire','EXPLOSIF']],
+    type:'normal',
+    exos:[
+      {n:'1',name:'Tractions pronation lestées',tag:'⚡ Phase montée explosive',tagType:'ex-expl',sets:'4×6-8'},
+      {n:'2',name:'Rowing barre pronation',sets:'4×8-10'},
+      {n:'3',name:'Rowing haltère un bras',sets:'3×10-12'},
+      {n:'4',name:'Shrugs haltères (pause 1s haute)',sets:'3×12-15'},
+      {n:'5',name:'Curl barre EZ',sets:'3×8-10'},
+      {n:'6',name:'Curl pupitre un bras',sets:'3×12'},
+    ],
+    foot:'fa-person-walking|2×20 MIN MARCHE INCLINÉE POST-SÉANCE'
+  },
+  {
+    day:'MERCREDI',name:'LEGS A',sub:'FORCE + PLIOMÉTRIE',
+    icon:'fa-person-running',iconColor:'var(--blood2)',
+    badges:[['bforce','fa-bolt','FORCE'],['baxp','fa-fire','PLIOMÉTRIE']],
+    type:'normal',
+    exos:[
+      {n:'1',name:'Squat barre haute',tag:'⚠ Amplitude contrôlée · Stop avant douleur',tagType:'ex-super',sets:'4×6-8'},
+      {n:'2',name:'Soulevé de terre roumain haltères',sets:'4×8-10'},
+      {n:'3',name:'Leg press (prise large)',sets:'3×10-12'},
+      {n:'4',name:'Box jumps / Sauts sur banc',tag:'⚡ Atterrissage silencieux = max abs',tagType:'ex-expl',sets:'3×5'},
+      {n:'5',name:'Curl allongé ischios',sets:'3×12'},
+      {n:'6',name:'Mollets debout (3 temps)',sets:'4×15'},
+    ],
+    foot:'fa-person-walking|2×20 MIN MARCHE INCLINÉE POST-SÉANCE'
+  },
+  {
+    day:'JEUDI',name:'ATHLÉ',sub:'VITESSE + EXPLOSIVITÉ',
+    icon:'fa-bolt-lightning',iconColor:'var(--lime)',
+    badges:[['bathl','fa-wind','VITESSE'],['baxp','fa-fire','EXPLOSIF']],
+    type:'athletic',
+    exos:[
+      {n:'1',name:'Échauffement gammes ABC',tag:'🌿 Montées genoux, talons fesses, skipping',tagType:'ex-note',sets:'15 MIN'},
+      {n:'2',name:'Sprints 20m départ arrêté',tag:'⚡ 100% intensité · repos 90s entre',tagType:'ex-expl',sets:'6×20M'},
+      {n:'3',name:'Sprints 40m progressifs',tag:'⚡ 85-95% · Mécanique propre',tagType:'ex-expl',sets:'4×40M'},
+      {n:'4',name:'Sauts en longueur debout',tag:'⚡ Max distance · 3 min repos',tagType:'ex-expl',sets:'5 reps'},
+      {n:'5',name:'Fentes sautées alternées',sets:'3×8/j'},
+      {n:'6',name:'Retour au calme : mobilité hanches + étirements',sets:'10 MIN'},
+    ],
+    foot:'fa-leaf|JOUR 48H APRÈS LEGS A · RÉCUPÉRATION JAMBES PRIORITAIRE'
+  },
+  {
+    day:'VENDREDI',name:'PUSH B',sub:'HYPERTROPHIE',
+    icon:'fa-explosion',iconColor:'var(--violet2)',
+    badges:[['bhyper','fa-expand','HYPERTROPHIE']],
+    type:'normal',
+    exos:[
+      {n:'1',name:'Développé militaire assis haltères',sets:'4×8-10'},
+      {n:'2',name:'Développé couché prise serrée (triceps)',sets:'3×10-12'},
+      {n:'3',name:'Superset : élév. frontales + latérales',tag:'⚡ SUPERSET · repos 90s après paire',tagType:'ex-super',sets:'3×12'},
+      {n:'4',name:'Push press (haltères ou barre)',tag:'⚡ Impulsion jambes — explosif',tagType:'ex-expl',sets:'4×6'},
+      {n:'5',name:'Dips lestés',sets:'3×8-10'},
+      {n:'6',name:'Extension au-dessus tête haltère',sets:'3×15'},
+    ],
+    foot:'fa-person-walking|2×20 MIN MARCHE INCLINÉE POST-SÉANCE'
+  },
+  {
+    day:'SAMEDI',name:'PULL B',sub:'HYPERTROPHIE',
+    icon:'fa-arrows-to-circle',iconColor:'var(--violet2)',
+    badges:[['bhyper','fa-expand','HYPERTROPHIE']],
+    type:'normal',
+    exos:[
+      {n:'1',name:'Rowing T-bar / machine',tag:'⚡ Contraction rapide montée',tagType:'ex-expl',sets:'4×8-10'},
+      {n:'2',name:'Tractions supination prise serrée',sets:'3×8-10'},
+      {n:'3',name:'Pulldown poulie haute large',sets:'3×10-12'},
+      {n:'4',name:'Face pull (santé épaules longues)',sets:'4×15'},
+      {n:'5',name:'Curl marteau corde poulie basse',sets:'3×12'},
+      {n:'6',name:'Curl incliné haltères (étirement maximal)',sets:'3×12'},
+    ],
+    foot:'fa-person-walking|2×20 MIN MARCHE INCLINÉE POST-SÉANCE'
+  },
+  {
+    day:'DIMANCHE',name:'LEGS B',sub:'VOLUME + SAUTS (optionnel)',
+    icon:'fa-dumbbell',iconColor:'#70b8ff',
+    badges:[['bvol','fa-wave-square','VOLUME'],['baxp','fa-fire','SAUTS']],
+    type:'normal',
+    exos:[
+      {n:'1',name:'Hack squat ou goblet squat',sets:'4×10-12'},
+      {n:'2',name:'Soulevé de terre sumo léger',sets:'3×8'},
+      {n:'3',name:'Fentes haltères (courtes, contrôlées)',sets:'3×10/j'},
+      {n:'4',name:'Squat jump bodyweight',tag:'⚡ Détente verticale · max hauteur',tagType:'ex-expl',sets:'3×8'},
+      {n:'5',name:'Curl assis ischios',sets:'4×12'},
+      {n:'6',name:'Mollets assis (tempo 3-1-1)',sets:'4×20'},
+    ],
+    foot:'fa-person-walking|2×20 MIN MARCHE INCLINÉE POST-SÉANCE'
+  },
 ];
-const QUOTES_DELOAD = [
-  '"Le deload n\'est pas une faiblesse. C\'est ta tactique secrète." — NSCA 2024',
-  '"Supercompensation : tu sors plus fort qu\'avant la pause."',
-  '"50-60% de charge. 100% de récupération. La formule gagnante."',
-  '"Dors 9h cette semaine. Ta GH travaille pour toi."',
-  '"n=246 athlètes de force font tous des deloads. Rejoins-les."',
-  '"Récupération active ≠ repos total. Marche, mobilité, massage."',
+
+const DELOAD_DAYS = [
+  {
+    day:'LUNDI · DELOAD',name:'PUSH A',sub:'CHARGES -50% · SANS EXPLOSIF',
+    icon:'fa-battery-half',iconColor:'var(--dl)',
+    badges:[['bdl','fa-moon','DELOAD']],
+    type:'deload',
+    exos:[
+      {n:'1',name:'Développé couché haltères (léger)',sets:'2×6',dlSets:true},
+      {n:'2',name:'Développé incliné machine',sets:'2×8',dlSets:true},
+      {n:'3',name:'Élévations latérales haltères légères',sets:'2×10',dlSets:true},
+      {n:'4',name:'Triceps poulie corde (léger)',sets:'2×10',dlSets:true},
+      {n:'—',name:'❌ AUCUN exercice explosif cette semaine',noIcon:true,dlNote:true},
+    ],
+    foot:'fa-heart-pulse|MARCHE LÉGÈRE 15 MIN · MOBILITÉ ÉPAULES'
+  },
+  {
+    day:'MARDI · DELOAD',name:'PULL A',sub:'CHARGES -50% · TEMPO LENT',
+    icon:'fa-battery-half',iconColor:'var(--dl)',
+    badges:[['bdl','fa-moon','DELOAD']],
+    type:'deload',
+    exos:[
+      {n:'1',name:'Tractions pronation (sans lest)',sets:'2×6',dlSets:true},
+      {n:'2',name:'Rowing barre léger',sets:'2×8',dlSets:true},
+      {n:'3',name:'Shrugs haltères légers',sets:'2×10',dlSets:true},
+      {n:'4',name:'Curl barre EZ léger',sets:'2×8',dlSets:true},
+      {n:'—',name:'❌ Pas de rowing explosif · tempo lent',noIcon:true,dlNote:true},
+    ],
+    foot:'fa-heart-pulse|MARCHE 15 MIN · MOBILITÉ DOS THORACIQUE'
+  },
+  {
+    day:'MERCREDI · DELOAD',name:'LEGS A',sub:'CHARGES -50% · AUCUNE PLIO',
+    icon:'fa-battery-half',iconColor:'var(--dl)',
+    badges:[['bdl','fa-moon','DELOAD']],
+    type:'deload',
+    exos:[
+      {n:'1',name:'Goblet squat léger (technique)',sets:'2×8',dlSets:true},
+      {n:'2',name:'Soulevé de terre roumain léger',sets:'2×8',dlSets:true},
+      {n:'3',name:'Extension assise légère',sets:'2×10',dlSets:true},
+      {n:'4',name:'Mollets debout léger',sets:'2×12',dlSets:true},
+      {n:'—',name:'❌ AUCUN saut · AUCUNE pliométrie',noIcon:true,dlNote:true},
+    ],
+    foot:'fa-heart-pulse|MOBILITÉ HANCHES · ÉTIREMENTS 15 MIN'
+  },
+  {
+    day:'JEUDI · DELOAD',name:'MOBILITÉ',sub:'PAS DE SPRINTS · RÉCUP ACTIVE',
+    icon:'fa-spa',iconColor:'var(--dl)',
+    badges:[['bdl','fa-moon','RÉCUP']],
+    type:'deload',
+    exos:[
+      {n:'1',name:'Marche légère en plein air',sets:'30 MIN',dlSets:true},
+      {n:'2',name:'Rotations épaules + hanches + chevilles',sets:'10 MIN',dlSets:true},
+      {n:'3',name:'Gainage statique (planche, side)',sets:'3×30s',dlSets:true},
+      {n:'4',name:'Étirements dynamiques corps entier',sets:'15 MIN',dlSets:true},
+      {n:'—',name:'❌ AUCUN sprint · AUCUN saut · AUCUNE vitesse',noIcon:true,dlNote:true},
+    ],
+    foot:'fa-bed|SOMMEIL 9H+ CETTE NUIT · RÉCUPÉRATION NERVEUSE'
+  },
+  {
+    day:'VENDREDI · DELOAD',name:'PUSH B',sub:'TECHNIQUE PURE · CONNEXION',
+    icon:'fa-battery-half',iconColor:'var(--dl)',
+    badges:[['bdl','fa-moon','DELOAD']],
+    type:'deload',
+    exos:[
+      {n:'1',name:'Développé militaire léger',sets:'2×6',dlSets:true},
+      {n:'2',name:'Élévations lat. + frontales légères',sets:'2×10',dlSets:true},
+      {n:'3',name:'Dips poids de corps (sans lest)',sets:'2×6',dlSets:true},
+      {n:'4',name:'Extension triceps léger',sets:'2×10',dlSets:true},
+      {n:'—',name:'❌ Pas de push press · Pas d\'explosif',noIcon:true,dlNote:true},
+    ],
+    foot:'fa-heart-pulse|MARCHE 15 MIN · ÉTIREMENTS PECS'
+  },
+  {
+    day:'SAMEDI · DELOAD',name:'PULL B',sub:'TIRAGE DOUX · TENDONS',
+    icon:'fa-battery-half',iconColor:'var(--dl)',
+    badges:[['bdl','fa-moon','DELOAD']],
+    type:'deload',
+    exos:[
+      {n:'1',name:'Pulldown poulie large (léger)',sets:'2×8',dlSets:true},
+      {n:'2',name:'Rowing machine / câble léger',sets:'2×8',dlSets:true},
+      {n:'3',name:'Face pull (santé coiffe rotateurs)',sets:'3×15',dlSets:true},
+      {n:'4',name:'Curl marteau léger',sets:'2×10',dlSets:true},
+      {n:'—',name:'Tempo lent · connexion musculaire totale',noIcon:true,dlNote:true},
+    ],
+    foot:'fa-heart-pulse|MARCHE 15 MIN · MOBILITÉ DOS'
+  },
+  {
+    day:'DIMANCHE · DELOAD',name:'REPOS TOTAL',sub:'RÉCUPÉRATION MAXIMALE',
+    icon:'fa-bed',iconColor:'var(--fog)',
+    badges:[['brest','fa-bed','RÉCUPÉRATION']],
+    type:'rest',
+    exos:[
+      {n:'—',name:'Sommeil 9h+ · Croissance maximale pendant deload',noIcon:true},
+      {n:'—',name:'Protéines maintenues : 160g · Eau 3L+',noIcon:true},
+      {n:'—',name:'Aucun sport intense · Marche légère acceptée',noIcon:true},
+    ],
+    foot:'fa-heart-pulse|LA RÉCUPÉRATION EST UN ENTRAÎNEMENT'
+  },
 ];
-const IMPACT_NORMAL  = ['CRUSH IT!', 'GO!!', '力!', 'BEAST!', 'IRON!', 'PUSH!!', 'PULL!!', 'TITAN!'];
-const IMPACT_ATHLETIC = ['SPRINT!', 'SPEED!', '疾!', 'FLY!!', 'POWER!', 'FAST!'];
-const IMPACT_DELOAD  = ['RECOVER!', 'REPAIR!', '修!', 'REST!', 'GROW!', 'DELOAD!'];
-const COLORS_NORMAL  = ['#f5a623','#ffd166','#c41e3a','#e8294e','#00d4ff','#c77dff','#ffffff'];
-const COLORS_ATHLETIC= ['#39ff14','#a8ff3e','#ffd166','#00d4ff','#ffffff','#a8ff3e'];
-const COLORS_DELOAD  = ['#ff9800','#ffcc02','#fff3e0','#ffb74d','#ffffff'];
 
-/* ─── LOCALSTORAGE HELPERS ─── */
-function lsGet(k) { try { return localStorage.getItem(k); } catch(e){ return null; } }
-function lsSet(k,v) { try { localStorage.setItem(k,v); } catch(e){} }
+/* ══════════ BUILD WEEK CARD ══════════ */
+function buildCard(d) {
+  const isDl  = d.type === 'deload';
+  const isAthl = d.type === 'athletic';
+  const isRest = d.type === 'rest';
 
-/* ─── INIT ─── */
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = lsGet('shinwa_start');
-  if (saved) {
-    document.getElementById('startDateInput').value = saved;
-    applyStartDate(saved);
-  } else {
-    // Default = today
-    const today = new Date();
-    const iso = today.toISOString().split('T')[0];
-    document.getElementById('startDateInput').value = iso;
-  }
-  buildTimeline();
-  updateCountdown();
-  buildTracker();
-  setInterval(updateCountdown, 60000);
-});
+  let cardClass = 'pcard';
+  if(isAthl) cardClass += ' a-card';
+  if(isDl)   cardClass += ' dl-card';
+  if(isRest) cardClass += ' rest-card';
 
-/* ─── DATE HANDLING ─── */
-function setStartDate() {
-  const val = document.getElementById('startDateInput').value;
-  if (!val) return;
-  lsSet('shinwa_start', val);
-  applyStartDate(val);
+  const badges = d.badges.map(([cls,ico,lbl]) =>
+    `<div class="badge ${cls}"><i class="fas ${ico}"></i>${lbl}</div>`).join('');
+
+  const exos = d.exos.map(ex => {
+    const nEl = ex.noIcon
+      ? `<span class="ex-n" style="color:var(--fog);font-size:.7rem">—</span>`
+      : `<span class="ex-n">${ex.n}</span>`;
+    const tag = ex.tag
+      ? `<span class="ex-tag ${ex.tagType||''}">${ex.tag}</span>` : '';
+    const nameEl = ex.dlNote
+      ? `<span style="color:var(--dl2);font-size:.68rem">${ex.name}</span>`
+      : `<span>${ex.name}${tag}</span>`;
+    const setsEl = ex.sets
+      ? `<span class="ex-sets${ex.dlSets?' dl-s':''}">${ex.sets}</span>` : `<span></span>`;
+    return `<li>${nEl}${nameEl}${setsEl}</li>`;
+  }).join('');
+
+  const [footIcon, footTxt] = d.foot.split('|');
+  const dlOverlay = isDl ? `<div class="deload-overlay">DELOAD</div>` : '';
+
+  return `
+<div class="${cardClass}">
+  ${dlOverlay}
+  <div class="pcard-head">
+    <div>
+      <div class="pc-day">// ${d.day}</div>
+      <div class="pc-name">${d.name}${d.name==='LEGS B'?'<span style="font-family:var(--fm);font-size:.5rem;color:var(--fog);margin-left:.5rem;vertical-align:middle">OPT.</span>':''}</div>
+      ${badges}
+    </div>
+    <div class="pc-icon" style="color:${d.iconColor}"><i class="fas ${d.icon}"></i></div>
+  </div>
+  <div class="pcard-body">
+    <ul class="ex-list">${exos}</ul>
+  </div>
+  <div class="pcard-foot"><i class="fas ${footIcon}"></i>${footTxt}</div>
+</div>`;
 }
 
-function applyStartDate(dateStr) {
-  startDate = new Date(dateStr + 'T00:00:00');
-  updateCountdown();
-  buildTimeline();
-  buildTracker();
-  detectWeek();
+/* ══════════ BUILD WEEK BLOCK ══════════ */
+function buildWeekBlock(w) {
+  const type = WEEK_TYPES[w];
+  const isDeload = type === 'deload';
+  const isTest   = type === 'test';
+
+  let headClass = 'week-head';
+  if(isDeload) headClass += ' deload-head';
+  if(isTest)   headClass += ' test-head';
+
+  let numClass = 'wh-num';
+  if(isDeload) numClass += ' deload-num';
+  if(isTest)   numClass += ' test-num';
+
+  const badge = isDeload
+    ? `<div class="wh-badge b-deload"><i class="fas fa-moon"></i>DELOAD</div>`
+    : isTest
+    ? `<div class="wh-badge b-test"><i class="fas fa-trophy"></i>SEMAINE TEST</div>`
+    : `<div class="wh-badge b-normal"><i class="fas fa-bolt"></i>PPL NORMAL</div>`;
+
+  const title = isDeload ? 'SEMAINE DE RÉCUPÉRATION'
+    : isTest ? 'SEMAINE DE VALIDATION'
+    : 'PPL + ATHLÉTISME';
+
+  const sub = isDeload
+    ? 'CHARGES -50% · AUCUN EXPLOSIF · SUPERCOMPENSATION'
+    : isTest
+    ? 'INTENSITÉ NORMALE · MESURE TES PR · PHOTOS MENSURATIONS'
+    : 'PUSH A · PULL A · LEGS A · ATHLÉ · PUSH B · PULL B · LEGS B';
+
+  const days = isDeload ? DELOAD_DAYS : NORMAL_DAYS;
+  const cards = days.map(buildCard).join('');
+
+  const innerBanner = isDeload ? `
+<div class="deload-banner-inline">
+  <span class="dl-pulse"></span>
+  <div class="deload-banner-txt">
+    ⚠ DELOAD ACTIF — 50-60% CHARGES HABITUELLES · 2 SÉRIES PAR EXERCICE · PAS D'EXPLOSIF · PAS D'ÉCHEC MUSCULAIRE<br>
+    Science : réduction volume + intensité toutes 4-5 semaines optimale (NSCA 2024 · Nature 2026)
+  </div>
+</div>` : isTest ? `
+<div class="test-banner-inline">
+  <span class="dl-pulse" style="background:var(--sky);box-shadow:0 0 10px var(--sky)"></span>
+  <div class="test-banner-txt">
+    🏆 SEMAINE DE VALIDATION — Intensité normale. Mesure tout : Photos · Poids · Mensurations · Personal Records.<br>
+    Tu peux maintenant voir à quel point tu as progressé. C'est ta semaine de vérité.
+  </div>
+</div>` : '';
+
+  return `
+<div class="week-block" id="week-${w}">
+  <div class="${headClass}" onclick="toggleWeek(${w})">
+    <div class="${numClass}">S${w}</div>
+    <div>
+      <div class="wh-title">${title}</div>
+      <div class="wh-sub">${sub}</div>
+    </div>
+    ${badge}
+    <i class="fas fa-chevron-down wh-arrow"></i>
+  </div>
+  <div class="week-body">
+    ${innerBanner}
+    <div class="prog-grid">${cards}</div>
+  </div>
+</div>`;
 }
 
-function detectWeek() {
-  if (!startDate) return;
-  const now = new Date();
-  const diffDays = Math.floor((now - startDate) / 86400000);
-  currentWeek = Math.floor(diffDays / 7) + 1;
-  if (currentWeek < 1) currentWeek = 0;
-  if (currentWeek > 12) currentWeek = 12;
-
-  isDeload = DELOAD_WEEKS.includes(currentWeek);
-  isTest   = currentWeek === TEST_WEEK;
-
-  // Show/hide program
-  document.getElementById('week-normal').style.display = isDeload ? 'none' : 'block';
-  document.getElementById('week-deload').style.display = isDeload ? 'block' : 'none';
-
-  // Deload banner
-  const banner = document.getElementById('deload-banner');
-  if (isDeload) {
-    banner.classList.add('active');
-    document.body.style.paddingTop = '38px';
-  } else {
-    banner.classList.remove('active');
-    document.body.style.paddingTop = '0';
-  }
-
-  // Week indicator
-  const wi = document.getElementById('weekIndicator');
-  const wiWeek = document.getElementById('wi-week');
-  const wiDesc = document.getElementById('wi-desc');
-  const wiBadge = document.getElementById('wi-badge');
-  const wiDisplay = document.getElementById('current-week-display');
-
-  if (currentWeek < 1) {
-    wiWeek.textContent = 'S —';
-    wiDesc.textContent = 'Programme pas encore démarré';
-    wiBadge.className = 'wi-badge normal';
-    wiBadge.innerHTML = '<i class="fas fa-clock"></i>EN ATTENTE';
-    wiDisplay.textContent = '—';
-    return;
-  }
-
-  wiDisplay.textContent = 'SEMAINE ' + currentWeek + '/12';
-
-  if (isDeload) {
-    wi.className = 'week-indicator is-deload';
-    wiWeek.className = 'wi-week is-deload';
-    wiWeek.textContent = 'S' + currentWeek + ' — DELOAD';
-    wiDesc.textContent = 'Charges -50% · Aucun explosif · Récupération active · Supercompensation en cours';
-    wiBadge.className = 'wi-badge deload';
-    wiBadge.innerHTML = '<i class="fas fa-moon"></i>DELOAD ACTIF';
-  } else if (isTest) {
-    wi.className = 'week-indicator is-test';
-    wiWeek.className = 'wi-week is-test';
-    wiWeek.textContent = 'S' + currentWeek + ' — TEST';
-    wiDesc.textContent = 'Semaine de validation · Garde l\'intensité normale · Mesure tes progrès · Pas de deload';
-    wiBadge.className = 'wi-badge test';
-    wiBadge.innerHTML = '<i class="fas fa-trophy"></i>SEMAINE TEST';
-    showToast('🏆 SEMAINE 12 — VALIDATION', 'C\'est ta semaine de vérité. Intensité normale. Mesure tout : PR, photos, mensurations.', false);
-  } else {
-    wi.className = 'week-indicator';
-    wiWeek.className = 'wi-week';
-    wiWeek.textContent = 'S' + currentWeek + '/12';
-    wiDesc.textContent = 'PPL + Athlétisme · Intensité normale · Surcharge progressive';
-    wiBadge.className = 'wi-badge normal';
-    wiBadge.innerHTML = '<i class="fas fa-bolt"></i>PPL NORMAL';
-  }
-
-  const infoEl = document.getElementById('config-info');
-  infoEl.textContent = 'Départ : ' + startDate.toLocaleDateString('fr-FR') + ' · Fin Bloc I : ' + new Date(startDate.getTime() + 84*86400000).toLocaleDateString('fr-FR');
-
-  buildTimeline();
-  buildTracker();
-
-  if (isDeload) {
-    setTimeout(() => {
-      showToast('⚠ DELOAD SEMAINE ' + currentWeek, 'Charges à 50-60%. Aucun explosif. Récupération maximale. Tu sortiras plus fort.', true);
-    }, 1200);
-  }
-}
-
-/* ─── COUNTDOWN ─── */
-function updateCountdown() {
-  if (!startDate) return;
-  const end = new Date(startDate.getTime() + TOTAL_DAYS * 86400000);
-  const now  = Date.now();
-  const remaining = Math.max(0, Math.ceil((end - now) / 86400000));
-  const done = TOTAL_DAYS - remaining;
-  const pct  = Math.round((done / TOTAL_DAYS) * 100);
-  const weeks = Math.max(0, Math.ceil(remaining / 7));
-
-  document.getElementById('daysLeft').textContent  = remaining;
-  document.getElementById('daysLeft2').textContent = remaining;
-  document.getElementById('weeksLeft').textContent = weeks;
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressPct').textContent =
-    pct + '% ACCOMPLI · ' + (remaining === 0 ? 'BLOC II DÉVERROUILLÉ !' : remaining + ' JOURS RESTANTS');
-
-  detectWeek();
-}
-
-/* ─── TIMELINE ─── */
-function buildTimeline() {
-  const tl = document.getElementById('weekTimeline');
-  tl.innerHTML = '';
-
-  let wDone = 0;
-  if (startDate) {
-    const diff = Math.floor((new Date() - startDate) / 86400000);
-    wDone = Math.floor(diff / 7) + 1;
-  }
-
-  for (let w = 1; w <= 12; w++) {
+/* ══════════ BUILD STRIP DOTS ══════════ */
+function buildStrip() {
+  const strip = document.getElementById('weekStrip');
+  for(let w=1; w<=12; w++){
+    const t = WEEK_TYPES[w];
+    const cl = t==='deload'?'is-deload':t==='test'?'is-test':'is-normal';
+    const lbl = t==='deload'?'DELOAD':t==='test'?'TEST':'S'+w;
     const dot = document.createElement('div');
-    dot.className = 'week-dot';
-
-    if (DELOAD_WEEKS.includes(w)) dot.classList.add('deload');
-    else if (w === TEST_WEEK)     dot.classList.add('test');
-
-    if (w < wDone)                dot.classList.add('done');
-    if (w === currentWeek && currentWeek > 0) dot.classList.add('current');
-
-    const circle = document.createElement('div');
-    circle.className = 'week-dot-circle';
-    circle.textContent = w;
-
-    const label = document.createElement('div');
-    label.className = 'week-dot-label';
-    if (DELOAD_WEEKS.includes(w))  label.textContent = 'DELOAD';
-    else if (w === TEST_WEEK)       label.textContent = 'TEST';
-    else                            label.textContent = 'S' + w;
-
-    dot.appendChild(circle);
-    dot.appendChild(label);
-    tl.appendChild(dot);
-  }
-}
-
-/* ─── SESSION TRACKER ─── */
-const DAYS_LABELS = ['LUN','MAR','MER','JEU','VEN','SAM','DIM'];
-
-function buildTracker() {
-  const container = document.getElementById('sessionTracker');
-  const existing = container.querySelectorAll('.track-btn');
-  existing.forEach(b => b.remove());
-
-  const weekKey = 'shinwa_week_' + currentWeek;
-  let weekData = {};
-  try { weekData = JSON.parse(lsGet(weekKey) || '{}'); } catch(e){}
-
-  DAYS_LABELS.forEach((label, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'track-btn';
-
-    const done = weekData[i];
-    if (done === 'dl') btn.classList.add('done-dl');
-    else if (done === 'ok') btn.classList.add('done');
-
-    btn.innerHTML = `<span class="track-btn-day">${label}</span><span class="track-btn-check">${done === 'ok' ? '✓' : done === 'dl' ? '◐' : '○'}</span>`;
-
-    btn.onclick = () => {
-      const cur = weekData[i];
-      if (!cur)       weekData[i] = 'ok';
-      else if (cur === 'ok') weekData[i] = isDeload ? 'dl' : null;
-      else            weekData[i] = null;
-      if (!weekData[i]) delete weekData[i];
-      lsSet(weekKey, JSON.stringify(weekData));
-      buildTracker();
+    dot.className = `wdot ${cl}`;
+    dot.innerHTML = `<div class="wdot-circle">${w}</div><div class="wdot-label">${lbl}</div>`;
+    dot.onclick = () => {
+      const el = document.getElementById('week-'+w);
+      if(el){ el.scrollIntoView({behavior:'smooth',block:'start'}); openWeek(w); }
     };
-
-    container.appendChild(btn);
-  });
-}
-
-/* ─── TOAST ─── */
-function showToast(title, msg, dl = false) {
-  const container = document.getElementById('toast-container');
-  const toast = document.createElement('div');
-  toast.className = 'toast' + (dl ? ' deload-toast' : '');
-  toast.innerHTML = `
-    <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
-    <div class="toast-title">${title}</div>
-    <div class="toast-msg">${msg}</div>
-    <div class="toast-bar"></div>
-  `;
-  container.appendChild(toast);
-  requestAnimationFrame(() => requestAnimationFrame(() => toast.classList.add('show')));
-  setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 500); }, 5000);
-}
-
-/* ─── PARTICLES ─── */
-function spawnParticles(x, y, colors, count = 22) {
-  for (let i = 0; i < count; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    const size  = 3 + Math.random() * 7;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const angle = Math.random() * Math.PI * 2;
-    const speed = 80 + Math.random() * 180;
-    const tx    = Math.cos(angle) * speed;
-    const ty    = Math.sin(angle) * speed - 60;
-    const dur   = 0.5 + Math.random() * 0.6;
-    const rot   = (Math.random() - 0.5) * 360;
-    p.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${color};box-shadow:0 0 ${size*2}px ${color};--dur:${dur}s;--tx:${tx}px;--ty:${ty}px;--rot:${rot}deg;`;
-    document.body.appendChild(p);
-    setTimeout(() => p.remove(), dur * 1000 + 100);
+    strip.appendChild(dot);
   }
 }
 
-function spawnImpact(x, y, text, type = 'normal') {
-  const el = document.createElement('div');
-  el.className = 'impact-word ' + (type === 'athletic' ? 'athletic' : type === 'deload' ? 'deload' : '');
-  el.style.left = x + 'px';
-  el.style.top  = y + 'px';
-  el.style.fontSize = (Math.min(4, Math.max(1.4, window.innerWidth / 180))) + 'rem';
-  el.textContent = text;
-  document.body.appendChild(el);
-  setTimeout(() => el.remove(), 720);
+/* ══════════ BUILD ACCORDION ══════════ */
+function buildAccordion() {
+  const acc = document.getElementById('weekAccordion');
+  for(let w=1; w<=12; w++){
+    acc.insertAdjacentHTML('beforeend', buildWeekBlock(w));
+  }
 }
 
-function spawnRipple(x, y, color = 'rgba(196,30,58,.5)') {
-  const r = document.createElement('div');
-  r.className = 'ripple';
-  r.style.borderColor = color;
-  const size = 120 + Math.random() * 80;
-  r.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;border-color:${color};`;
-  document.body.appendChild(r);
-  setTimeout(() => r.remove(), 650);
+/* ══════════ TOGGLE ══════════ */
+function toggleWeek(w) {
+  const block = document.getElementById('week-'+w);
+  if(!block) return;
+  const isOpen = block.classList.contains('open');
+  // close all
+  document.querySelectorAll('.week-block.open').forEach(b => b.classList.remove('open'));
+  if(!isOpen) block.classList.add('open');
+}
+function openWeek(w) {
+  document.querySelectorAll('.week-block.open').forEach(b => b.classList.remove('open'));
+  const block = document.getElementById('week-'+w);
+  if(block) block.classList.add('open');
 }
 
-/* ─── CARD ACTIVATE ─── */
-function activate(e, name, desc, dl = false) {
-  const card = e.currentTarget;
-  const isAthletic = card.classList.contains('pcard-athletic');
-  const isDl = dl || card.classList.contains('pcard-deload');
+/* ══════════ INIT ══════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  buildStrip();
+  buildAccordion();
 
-  const rect = card.getBoundingClientRect();
-  const cx = rect.left + rect.width / 2;
-  const cy = rect.top + rect.height / 2;
+  // Open week 1 by default
+  const first = document.getElementById('week-1');
+  if(first) first.classList.add('open');
 
-  const colors = isAthletic ? COLORS_ATHLETIC : isDl ? COLORS_DELOAD : COLORS_NORMAL;
-  const impacts = isAthletic ? IMPACT_ATHLETIC : isDl ? IMPACT_DELOAD : IMPACT_NORMAL;
-  const rippleColor = isAthletic ? 'rgba(57,255,20,.5)' : isDl ? 'rgba(255,152,0,.5)' : 'rgba(196,30,58,.5)';
-  const type = isAthletic ? 'athletic' : isDl ? 'deload' : 'normal';
-
-  spawnParticles(cx, cy, colors, 26);
-  spawnRipple(cx, cy, rippleColor);
-  spawnImpact(cx, cy - 40, impacts[Math.floor(Math.random() * impacts.length)], type);
-
-  // Card flash
-  const borderCol = isAthletic ? 'var(--lime)' : isDl ? 'var(--deload-c)' : 'var(--ember)';
-  const shadowCol = isAthletic ? 'rgba(57,255,20,.5)' : isDl ? 'rgba(255,152,0,.5)' : 'rgba(245,166,35,.5)';
-  card.style.transition = 'box-shadow .05s, border-color .05s';
-  card.style.boxShadow = `0 0 0 2px ${borderCol}, 0 0 60px ${shadowCol}`;
-  card.style.borderColor = borderCol;
-  setTimeout(() => { card.style.boxShadow = ''; card.style.borderColor = ''; setTimeout(() => card.style.transition = '', 300); }, 200);
-
-  const quotes = isDl ? QUOTES_DELOAD : QUOTES_NORMAL;
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  showToast((isDl ? '◐ ' : '✓ ') + name, desc + '<br><br><em style="color:' + (isDl ? 'var(--deload2)' : 'var(--ember)') + ';font-size:.6rem">' + quote + '</em>', isDl);
-}
-
-/* ─── ADVICE TABS ─── */
-function showAdvice(id, tab) {
-  document.querySelectorAll('.advice-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.adv-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('panel-' + id).classList.add('active');
-  tab.classList.add('active');
-}
-
-/* ─── GLOBAL CLICK FX ─── */
-document.addEventListener('click', (e) => {
-  if (e.target.closest('.pcard') || e.target.closest('.toast-close') || e.target.closest('.track-btn') || e.target.closest('.adv-tab') || e.target.closest('.btn-set')) return;
-  spawnParticles(e.clientX, e.clientY, COLORS_NORMAL, 8);
-});
-
-/* ─── ENTRY ANIMATION ─── */
-window.addEventListener('load', () => {
+  // Entry animation
   document.querySelectorAll('.pcard').forEach((card, i) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(28px)';
-    card.style.transition = `opacity .45s ${i * 0.065}s ease, transform .45s ${i * 0.065}s ease`;
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      card.style.opacity = '';
-      card.style.transform = '';
+    card.style.opacity='0';
+    card.style.transform='translateY(22px)';
+    card.style.transition=`opacity .4s ${i*0.055}s ease,transform .4s ${i*0.055}s ease`;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      card.style.opacity='';card.style.transform='';
     }));
   });
 });
